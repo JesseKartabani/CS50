@@ -21,14 +21,18 @@ int main(void)
 
     // Print the winner
     if (score1 > score2)
-      printf("Player 1 wins!\n");
+    {
+        printf("Player 1 wins!\n");
+    }
     else if (score2 > score1)
-      printf("Player 2 wins!\n");
+    {
+        printf("Player 2 wins!\n");
+    }
     else
-      printf("Tie!\n");
-    
+    {
+        printf("Tie!\n");
+    }
 }
-
 int compute_score(string word)
 {
     // Compute and return score for string
@@ -37,12 +41,15 @@ int compute_score(string word)
     {
         char c = word[i];
         if (isalpha(c))
+        {
             total += POINTS[get_index(c)];
+        }
     }
     return total;
-       
+
 }
-    // Get index function
+
+// Get index function
 int get_index(char c)
 {
     return tolower(c) - 'a';
