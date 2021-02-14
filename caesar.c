@@ -26,11 +26,15 @@ int main(int argc, string argv[])
         {
             char m = 'A';
             if (islower(c))
+            {
                 m = 'a';
+            }
             printf("%c", (c - m + key) % 26 + m);
         }
         else
+        {
             printf("%c", c);
+        }
     }
     printf("\n");
 }
@@ -39,6 +43,8 @@ bool check_valid_key(string s)
 {
     for (int i = 0, len = strlen(s); i < len; i++)
         if (!isdigit(s[i]))
+        {
             return false;
+        }
     return true;
 }
