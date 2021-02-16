@@ -1,0 +1,24 @@
+sort1 uses:Selection Sort
+
+How do you know?:By using the command time ./sort1 random50000.txt I was able to get the run
+time of sort1 in real time (0m15.446s)
+then I compared that against the other two sorting alogrithms. Knowing selection sort is the slowest algorithm of
+the three (selection sort, bubble sort, merge sort) I was able to come to the conclusion that sort1 uses selection
+sort.
+
+sort2 uses:Merge Sort
+
+How do you know?:By using the command time ./sort2 random50000.txt I was able to get the run
+time of sort2 in real time (0m3.952s)
+then I compared that against the other two sorting alogrithms. Knowing merge sort is the fastest algorithm of
+the three (selection sort, bubble sort, merge sort) I was able to come to the conclusion that sort2 uses merge
+sort.
+
+sort3 uses:Bubble Sort
+
+How do you know?:By using the command time ./sort3 random50000.txt I was able to get the run
+time of sort3 in real time (0m9.311s)
+then I compared that against the other two sorting alogrithms. Knowing bubble sort is the 2nd fastest algorithm of
+the three (selection sort, bubble sort, merge sort) I was able to come to the conclusion that sort3 uses bubble
+sort.
+
