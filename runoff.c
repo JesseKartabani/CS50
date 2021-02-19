@@ -129,7 +129,9 @@ int get_index(string name)
 {
     for (int i = 0; i < candidate_count; i++)
         if (strcmp(candidates[i].name, name) == 0)
+        {
             return i;
+        }
     return -1;
 }
 
@@ -211,7 +213,9 @@ bool is_tie(int min)
     {
         if (!candidates[i].eliminated)
             if (candidates[i].votes != min)
+            {
                 return false;
+            }
     }
     return true;
 }
@@ -225,7 +229,9 @@ void eliminate(int min)
         if (!candidates[i].eliminated)
         {
             if (candidates[i].votes == min)
+            {
                 candidates[i].eliminated = true;
+            }
         }
     }
 }
