@@ -40,7 +40,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // Function for swapping pixels
-void swap(RGBTRIPLE * pixel1, RGBTRIPLE * pixel2)
+void swap(RGBTRIPLE *pixel1, RGBTRIPLE *pixel2)
 {
     RGBTRIPLE temp = *pixel1;
     *pixel1 = *pixel2;
@@ -59,14 +59,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     }
 }
 
+// Function to check if a pixel is valid or not
 bool valid_pixel(int i, int j, int height, int width)
 {
     return i >= 0 && i < height && j >= 0 && j < width;
 }
 
+// Function to get blurred pixel
 RGBTRIPLE get_blurred_pixel(int i, int j, int height, int width, RGBTRIPLE image[height][width])
 {
-    int redValue, greenValue, blueValue; redValue = blueValue = greenValue = 0;
+    int redValue, greenValue, blueValue;
+    redValue = blueValue = greenValue = 0;
     int numOfValidPixels = 0;
     for (int di = -1; di <= 1; di++)
     {
@@ -103,6 +106,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     }
     
     for (int i = 0; i < height; i++)
+    {
         for (int j = 0; j < width; j++)
-            image[i][j] = new_image[i][j];
+        }
+    image[i][j] = new_image[i][j];
 }
