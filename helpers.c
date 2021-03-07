@@ -5,12 +5,12 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {   
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) //iterates top to bottom 
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++) // iterates left to right
         {
             RGBTRIPLE pixel = image[i][j];
-            int average = round((pixel.rgbtRed + pixel.rgbtGreen + pixel.rgbtBlue) / 3.0);
+            int average = round((pixel.rgbtRed + pixel.rgbtGreen + pixel.rgbtBlue) / 3.0); 
             image[i][j].rgbtRed = image[i][j].rgbtGreen = image[i][j].rgbtBlue = average;
         }
     }
@@ -24,14 +24,15 @@ int max(int value)
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) //iterates top to bottom 
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++) // iterates left to right
         {
             RGBTRIPLE pixel = image[i][j];
             int originalRed = pixel.rgbtRed;
             int originalGreen = pixel.rgbtGreen;
             int originalBlue = pixel.rgbtBlue;
+            // Sepia formular
             image[i][j].rgbtRed = max(round(0.393 * originalRed + 0.769 * originalGreen + 0.189 * originalBlue));
             image[i][j].rgbtGreen = max(round(0.349 * originalRed + 0.686 * originalGreen + 0.168 * originalBlue));
             image[i][j].rgbtBlue = max(round(0.272 * originalRed + 0.534 * originalGreen + 0.131 * originalBlue));
