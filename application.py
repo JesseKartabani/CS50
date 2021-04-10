@@ -62,7 +62,7 @@ def index():
         total += stocks[index][4]
 
     return render_template("index.html", stocks=stocks, cash=round(cash, 2), total=round(total, 2))
-    
+
     """Show portfolio of stocks"""
 
 
@@ -118,9 +118,9 @@ def buy():
 
     else:
         return render_template("buy.html")
- 
+
     """Buy shares of stock"""
-    
+
 
 @app.route("/history")
 @login_required
@@ -136,11 +136,11 @@ def history():
 
         # Create a list with all the info about the transaction and append it to a list of every stock transaction
         transactions.append(list((stock_info['symbol'], stock_info['name'], row['amount'], row['value'], row['date'])))
-    
+
     return render_template("history.html", transactions=transactions)
-    
+
     """Show history of transactions"""
-    
+
 
 def is_provided(field):
     if not request.form.get(field):
@@ -196,10 +196,10 @@ def logout():
 @login_required
 def quote():
     if request.method == "POST":
-        if not request.form.get("stock"):
+        if not request.form.get("symbol"):
             return apology("must provide stock symbol")
 
-        quote = lookup(request.form.get("stock"))
+        quote = lookup(request.form.get("symbol"))
 
         if quote == None:
             return apology("Stock symbol not valid, please try again")
@@ -214,7 +214,7 @@ def quote():
     else:
         return render_template("quote.html")
     """Get stock quote."""
-    
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -254,7 +254,7 @@ def register():
         return render_template("register.html")
 
     """Register user"""
-    
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
