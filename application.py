@@ -104,7 +104,6 @@ def buy():
                 symbol.upper(),
                 shares,
                 price["price"],
-                "buy",
             )
 
             flash("Transaction successful")
