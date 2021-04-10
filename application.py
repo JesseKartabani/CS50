@@ -70,65 +70,56 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-        if not request.form.get("symbol") or not request.form.get("stocks") or int(request.form.get("stocks")) < 1:
-            return render_template("buy.html")
-        
-        symbol = request.form.get("symbol").upper()
-        stocks = request.form.get("stocks")
-        user_id = session["user_id"]
-        
-        # lookup the stock
-        stock = lookup(symbol)
+        # Obtain the data necessary for the transaction
+        amount=int(request.form.get("amount"))
+        symbol=lookup(request.form.get("symbol"))['symbol']
 
-        # ensure symbol exists
+        # Control if the stock symbol is valid
+        if not lookup(symbol):
+            return apology("Could not find the stock")
+
+        # Calculate total value of the transaction
+        price=lookup(symbol)['price']
+        cash = db.execute("SELECT cash FROM users WHERE id = :user",
+                          user=session["user_id"])[0]['cash']
+        cash_after = cash - price * float(amount)
+
+        # Check if current cash is enough for transaction
+        if cash_after < 0:
+            return apology("You don't have enough money for this transaction")
+
+        # Check if user already has one or more stocks from the same company
+        stock = db.execute("SELECT amount FROM stocks WHERE user_id = :user AND symbol = :symbol",
+                          user=session["user_id"], symbol=symbol)
+
+        # Insert new row into the stock table
         if not stock:
-            return apology("symbol not found")
+            db.execute("INSERT INTO stocks(user_id, symbol, amount) VALUES (:user, :symbol, :amount)",
+                user=session["user_id"], symbol=symbol, amount=amount)
 
-        # calculate total price
-        total_price = float(stock["price"]) * float(stocks)
-        
-        user = db.execute("SELECT * FROM users WHERE id = :id", id=user_id)
-        funds = float(user[0]["cash"])
-        
-        # check if user has enough funds
-        if funds < total_price:
-            return apology(top="not enough funds", bottom="available: " + str("%.2f"%funds))
-        
-        funds_left = funds - total_price
-        
-        # check if symbol is already owned
-        stock_db = db.execute("SELECT * FROM stocks WHERE user_id = :user_id AND symbol = :symbol",
-                            user_id=user_id, symbol=symbol)
-        
-        # update with new price if already owned   
-        if len(stock_db) == 1:
-            
-            new_stocks = int(stock_db[0]["stocks"]) + int(stocks)
-            new_total = float(stock_db[0]["total"]) + total_price
-            new_pps = "%.2f"%(new_total / float(new_stocks))
-            
-            db.execute("UPDATE stocks SET stocks = :stocks, total = :total, pps = :pps WHERE user_id = :user_id AND symbol = :symbol",
-                        stocks=new_stocks, total=new_total, pps=new_pps, user_id=user_id, symbol=symbol)
-            
-        # else create a new entry in db
+        # update row into the stock table
         else:
-            
-            db.execute("INSERT INTO stocks (user_id, symbol, stocks, total, pps) VALUES (:user_id, :symbol, :stocks, :total, :pps)",
-                        user_id=user_id, symbol=symbol, stocks=stocks, total=total_price, pps=stock["price"])
-                        
-        # modify available funds
-        db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=funds_left, id=user_id)
-        
-        # commit to history
-        db.execute("INSERT INTO history (user_id, action, symbol, stocks, pps) VALUES (:user_id, :action, :symbol, :stocks, :pps)",
-                    user_id=user_id, action=1, symbol=symbol, stocks=stocks, pps=stock["price"])
-        
-        # send a success message
-        return render_template("success.html", action="bought", stocks=stocks,
-                                name=stock["name"], total=usd(total_price), funds=usd(funds_left))
-        
+            amount += stock[0]['amount']
+
+            db.execute("UPDATE stocks SET amount = :amount WHERE user_id = :user AND symbol = :symbol",
+                user=session["user_id"], symbol=symbol, amount=amount)
+
+        # update user's cash
+        db.execute("UPDATE users SET cash = :cash WHERE id = :user",
+                          cash=cash_after, user=session["user_id"])
+
+        # Update history table
+        db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
+                user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
+
+        # Redirect user to index page with a success message
+        flash("Bought!")
+        return redirect("/")
+
+    # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("buy.html")
+        
     """Buy amount of stock"""
 
 
@@ -285,7 +276,7 @@ def sell():
             db.execute("DELETE FROM stocks WHERE user_id = :user AND symbol = :symbol",
                           symbol=symbol, user=session["user_id"])
 
-        # Stop the transaction if the user does not have enough stocks
+        # Stop the transaction if the user does not have enough 
         elif amount_after < 0:
             return apology("That's more than the stocks you own")
 
