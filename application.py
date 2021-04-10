@@ -70,7 +70,7 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-        shares=int(request.form.get("shares"))
+        amount=int(request.form.get("amount"))
         symbol=lookup(request.form.get("symbol"))['symbol']
 
         # Control if the stock symbol is valid
@@ -81,35 +81,35 @@ def buy():
         price=lookup(symbol)['price']
         cash = db.execute("SELECT cash FROM users WHERE id = :user",
                           user=session["user_id"])[0]['cash']
-        cash_after = cash - price * float(shares)
+        cash_after = cash - price * float(amount)
 
         # Check if current cash is enough for transaction
         if cash_after < 0:
             return apology("You don't have enough money for this transaction")
 
         # Check if user already has one or more stocks from the same company
-        stock = db.execute("SELECT shares FROM stocks WHERE user_id = :user AND symbol = :symbol",
+        stock = db.execute("SELECT amount FROM stocks WHERE user_id = :user AND symbol = :symbol",
                           user=session["user_id"], symbol=symbol)
 
         # Insert new row into the stock table
         if not stock:
-            db.execute("INSERT INTO stocks(user_id, symbol, shares) VALUES (:user, :symbol, :shares)",
-                user=session["user_id"], symbol=symbol, shares=shares)
+            db.execute("INSERT INTO stocks(user_id, symbol, amount) VALUES (:user, :symbol, :amount)",
+                user=session["user_id"], symbol=symbol, amount=amount)
 
         # Update row into the stock table
         else:
-            shares += stock[0]['shares']
+            amount += stock[0]['amount']
 
-            db.execute("UPDATE stocks SET shares = :shares WHERE user_id = :user AND symbol = :symbol",
-                user=session["user_id"], symbol=symbol, shares=shares)
+            db.execute("UPDATE stocks SET amount = :amount WHERE user_id = :user AND symbol = :symbol",
+                user=session["user_id"], symbol=symbol, amount=amount)
 
         # Update user's cash
         db.execute("UPDATE users SET cash = :cash WHERE id = :user",
                           cash=cash_after, user=session["user_id"])
 
         # Update history table
-        db.execute("INSERT INTO transactions(user_id, symbol, shares, value) VALUES (:user, :symbol, :shares, :value)",
-                user=session["user_id"], symbol=symbol, shares=shares, value=round(price*float(amount)))
+        db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
+                user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
 
         # Redirect user to index page with a success message
         flash("Bought!")
@@ -118,7 +118,7 @@ def buy():
     else:
         return render_template("buy.html")
 
-    """Buy shares of stock"""
+    """Buy amount of stock"""
 
 
 @app.route("/history")
@@ -310,7 +310,7 @@ def sell():
 
         return render_template("sell.html", stocks=stocks)
 
-    """Sell shares of stock"""
+    """Sell amount of stock"""
 
 
 def errorhandler(e):
