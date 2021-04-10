@@ -71,7 +71,7 @@ def index():
 def buy():
     if request.method == "POST":
         # Obtain the data necessary for the transaction
-        amount=int(request.form.get("amount"))
+        amount=int(request.form.get("shares"))
         symbol=lookup(request.form.get("symbol"))['symbol']
 
         # Control if the stock symbol is valid
