@@ -70,7 +70,7 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-        amount=int(request.form.get("stocks"))
+        amount=int(request.form.get("amount"))
         symbol=lookup(request.form.get("symbol"))['symbol']
 
         # Control if the stock symbol is valid
