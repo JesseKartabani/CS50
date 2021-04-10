@@ -71,7 +71,7 @@ def index():
 def buy():
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        price = lookup(symbol)
+        amount=int(request.form.get("amount"))
         shares = request.form.get("shares")
         user_cash = db.execute(
             "SELECT cash FROM users WHERE id = ? ", session["user_id"]
