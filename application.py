@@ -70,55 +70,64 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-        # Obtain the data necessary for the transaction
-        amount=int(request.form.get("shares"))
-        symbol=lookup(request.form.get("symbol"))['symbol']
+  # ensure a symbol and quantity were submited
+        if not request.form.get("symbol") or not request.form.get("quantity") or int(request.form.get("quantity")) < 1:
+            return render_template("buy.html")
+        
+        symbol = request.form.get("symbol").upper()
+        quantity = request.form.get("quantity")
+        user_id = session["user_id"]
+        
+        # lookup the stock
+        stock = lookup(symbol)
 
-        # Control if the stock symbol is valid
-        if not lookup(symbol):
-            return apology("Could not find the stock")
-
-        # Calculate total value of the transaction
-        price=lookup(symbol)['price']
-        cash = db.execute("SELECT cash FROM users WHERE id = :user",
-                          user=session["user_id"])[0]['cash']
-        cash_after = cash - price * float(stocks)
-
-        # Check if current cash is enough for transaction
-        if cash_after < 0:
-            return apology("You don't have enough money for this transaction")
-
-        # Check if user already has one or more stocks from the same company
-        stock = db.execute("SELECT amount FROM stocks WHERE user_id = :user AND symbol = :symbol",
-                          user=session["user_id"], symbol=symbol)
-
-        # Insert new row into the stock table
+        # ensure symbol exists
         if not stock:
-            db.execute("INSERT INTO stocks(user_id, symbol, amount) VALUES (:user, :symbol, :amount)",
-                user=session["user_id"], symbol=symbol, amount=amount)
+            return apology("symbol not found")
 
-        # Update row into the stock table
+        # calculate total price
+        total_price = float(stock["price"]) * float(quantity)
+        
+        user = db.execute("SELECT * FROM users WHERE id = :id", id=user_id)
+        funds = float(user[0]["cash"])
+        
+        # check if user has enough funds
+        if funds < total_price:
+            return apology(top="not enough funds", bottom="available: " + str("%.2f"%funds))
+        
+        funds_left = funds - total_price
+        
+        # check if symbol is already owned
+        stock_db = db.execute("SELECT * FROM stocks WHERE user_id = :user_id AND symbol = :symbol",
+                            user_id=user_id, symbol=symbol)
+        
+        # update with new price if already owned   
+        if len(stock_db) == 1:
+            
+            new_quantity = int(stock_db[0]["quantity"]) + int(quantity)
+            new_total = float(stock_db[0]["total"]) + total_price
+            new_pps = "%.2f"%(new_total / float(new_quantity))
+            
+            db.execute("UPDATE stocks SET quantity = :quantity, total = :total, pps = :pps WHERE user_id = :user_id AND symbol = :symbol",
+                        quantity=new_quantity, total=new_total, pps=new_pps, user_id=user_id, symbol=symbol)
+            
+        # else create a new entry in db
         else:
-            amount += stock[0]['amount']
-
-            db.execute("UPDATE stocks SET amount = :amount WHERE user_id = :user AND symbol = :symbol",
-                user=session["user_id"], symbol=symbol, amount=amount)
-
-        # Update user's cash
-        db.execute("UPDATE users SET cash = :cash WHERE id = :user",
-                          cash=cash_after, user=session["user_id"])
-
-        # Update history table
-        db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
-                user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
-
-        # Redirect user to index page with a success message
-        flash("Bought!")
-        return redirect("/")
-    
-    else:
-        return render_template("buy.html")
-     
+            
+            db.execute("INSERT INTO stocks (user_id, symbol, quantity, total, pps) VALUES (:user_id, :symbol, :quantity, :total, :pps)",
+                        user_id=user_id, symbol=symbol, quantity=quantity, total=total_price, pps=stock["price"])
+                        
+        # modify available funds
+        db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=funds_left, id=user_id)
+        
+        # commit to history
+        db.execute("INSERT INTO history (user_id, action, symbol, quantity, pps) VALUES (:user_id, :action, :symbol, :quantity, :pps)",
+                    user_id=user_id, action=1, symbol=symbol, quantity=quantity, pps=stock["price"])
+        
+        # send a success message
+        return render_template("success.html", action="bought", quantity=quantity,
+                                name=stock["name"], total=usd(total_price), funds=usd(funds_left))
+        
     """Buy amount of stock"""
 
 
