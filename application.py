@@ -233,7 +233,7 @@ def register():
             
         # Ensure password and password confirmation match
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("password and password confirmation must match", 403)
+            return apology("password and password confirmation must match", 400)
         try:
             primary_key = db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",
                     username=request.form.get("username"),
