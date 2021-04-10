@@ -90,6 +90,8 @@ def buy():
         # Ensure number of shares is a positive integer
         if int(request.form.get("shares")) < 1:
             return apology("invalid number of shares")
+        elif not request.form.get("shares").isdigit():
+            return apology("invalid number of shares")
 
         stock_price = lookup(symbol)["price"]
         company = lookup(symbol)["name"]
