@@ -16,12 +16,15 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Ensure responses aren't cached
+
+
 @app.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+    
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
@@ -46,7 +49,7 @@ def index():
     """Show portfolio of stocks"""
 
     # Count number of bought and sold shares for each company
-    rows = db.execute("SELECT * FROM transactions WHERE uid = :uid", uid = session["user_id"])
+    rows = db.execute("SELECT * FROM transactions WHERE uid = :uid", uid=session["user_id"])
     global company_shares
     company_shares = {}
 
@@ -60,20 +63,21 @@ def index():
                 company_shares[row["symbol"]] = company_shares[row["symbol"]] - row["amount"]
 
     # Count user balance (total stocks + cash)
-    row = db.execute("SELECT cash FROM users WHERE id = :id", id = session["user_id"])
+    row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
     total = row[0]["cash"]
     for symbol, amount in company_shares.items():
         if amount > 0:
             stock = lookup(symbol)
             total += stock["price"] * amount
 
-
     return render_template("portfolio.html",
-                            shares = company_shares,
-                            lookup = lookup,
-                            usd = usd,
-                            cash = row[0]["cash"],
-                            balance = total)
+    
+
+                           shares=company_shares,
+                           lookup=lookup,
+                           usd=usd,
+                           cash=row[0]["cash"],
+                           balance=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -93,7 +97,7 @@ def buy():
         stock_price = lookup(symbol)["price"]
         company = lookup(symbol)["name"]
 
-        row = db.execute("SELECT cash FROM users WHERE id=:id", id = session["user_id"])
+        row = db.execute("SELECT cash FROM users WHERE id=:id", id=session["user_id"])
         user_cash = row[0]["cash"]
 
         # Ensure user can afford purchase
@@ -103,17 +107,17 @@ def buy():
 
         # Add purchase to database
         db.execute("INSERT INTO transactions (uid, company, symbol, amount, price, type) VALUES (:uid,:company,:symbol,:amount,:price,'bought')",
-                    uid = session["user_id"],
-                    company = company,
-                    symbol = lookup(symbol)["symbol"],
-                    amount = int(request.form.get("shares")),
-                    price = stock_price)
+                   uid=session["user_id"],
+                   company=company,
+                   symbol=lookup(symbol)["symbol"],
+                   amount=int(request.form.get("shares")),
+                   price=stock_price)
 
         # Update users cash
         new_cash = user_cash - purchase_price
         db.execute("UPDATE users SET cash = :cash WHERE id = :id",
-                    cash = new_cash,
-                    id = session["user_id"])
+                   cash=new_cash,
+                   id=session["user_id"])
 
         flash("Bought!")
         return redirect("/")
@@ -126,8 +130,8 @@ def buy():
 def history():
     """Show history of transactions"""
 
-    rows = db.execute("SELECT * FROM transactions WHERE uid = :uid", uid = session["user_id"])
-    return render_template("history.html", history = rows, usd = usd)
+    rows = db.execute("SELECT * FROM transactions WHERE uid = :uid", uid=session["user_id"])
+    return render_template("history.html", history=rows, usd=usd)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -149,7 +153,7 @@ def login():
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = :username",
-                          username = request.form.get("username"))
+                          username=request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -190,11 +194,12 @@ def quote():
             return apology("invalid symbol")
 
         return render_template("quoted.html",
-                                company = stock["name"],
-                                symbol = stock["symbol"],
-                                share_price = usd(stock["price"]))
+                               company=stock["name"],
+                               symbol=stock["symbol"],
+                               share_price=usd(stock["price"]))
     else:
         return render_template("quote.html")
+        
 
 @app.route("/username-availability", methods=["POST"])
 def username_available():
@@ -202,14 +207,15 @@ def username_available():
 
     username = request.get_json()
 
-    rows = db.execute("SELECT * FROM users WHERE username=:username", username = username)
+    rows = db.execute("SELECT * FROM users WHERE username=:username", username=username)
     if len(rows) > 0:
         available = False
     else:
         available = True
 
-    res = make_response(jsonify({ "available": available }))
+    res = make_response(jsonify({"available": available}))
     return res
+    
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -219,7 +225,7 @@ def register():
         if not request.form.get("username"):
             return apology("missing username")
 
-        rows = db.execute("SELECT * FROM users WHERE username=:username", username = request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username=:username", username=request.form.get("username"))
         if len(rows) > 0:
             return apology("invalid username")
 
@@ -233,8 +239,8 @@ def register():
 
         # Add user to database
         user_id = db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",
-                            username = request.form.get("username"),
-                            hash = generate_password_hash(request.form.get("password")))
+                             username=request.form.get("username"),
+                             hash=generate_password_hash(request.form.get("password")))
 
         # Remember which user has logged in
         session["user_id"] = user_id
@@ -265,29 +271,31 @@ def sell():
 
         # Update database
         stock = lookup(request.form.get("symbol"))
-        rows = db.execute("SELECT * FROM users WHERE id = :id", id = session["user_id"])
+        rows = db.execute("SELECT * FROM users WHERE id=:id", id=session["user_id"])
         new_cash = rows[0]["cash"] + (stock["price"] * int(request.form.get("shares")))
 
-        db.execute("UPDATE users SET cash = :cash WHERE id = :id",
-                    cash = new_cash,
-                    id = session["user_id"])
+        db.execute("UPDATE users SET cash = :cash WHERE id=:id",
+                   cash=new_cash,
+                   id=session["user_id"])
         db.execute("INSERT INTO transactions (uid, company, symbol, price, amount, type) VALUES (:uid,:company,:symbol,:price,:amount,'sold')",
-                    uid = session["user_id"],
-                    company = stock["name"],
-                    symbol = stock["symbol"],
-                    price = stock["price"],
-                    amount = int(request.form.get("shares")))
+                   uid=session["user_id"],
+                   company=stock["name"],
+                   symbol=stock["symbol"],
+                   price=stock["price"],
+                   amount=int(request.form.get("shares")))
 
         flash("Sold!")
         return redirect("/")
     else:
-        return render_template("sell.html", symbols = company_shares)
+        return render_template("sell.html", symbols=company_shares)
+        
 
 @app.route("/account")
 @login_required
 def account():
-    row = db.execute("SELECT username FROM users WHERE id = :id", id = session["user_id"])
-    return render_template("account.html", user = row[0]["username"])
+    row = db.execute("SELECT username FROM users WHERE id=:id", id=session["user_id"])
+    return render_template("account.html", user=row[0]["username"])
+    
 
 @app.route("/cash", methods=["GET", "POST"])
 @login_required
@@ -295,19 +303,20 @@ def cash():
     """Add cash"""
 
     if request.method == 'POST':
-         # Ensure amount  is a positive integer
+        # Ensure amount  is a positive integer
         if int(request.form.get("amount")) < 1:
             return apology("invalid amount")
 
         # Update database
-        row = db.execute("SELECT cash FROM users WHERE id = :id", id = session["user_id"])
+        row = db.execute("SELECT cash FROM users WHERE id=:id", id=session["user_id"])
         new_cash = row[0]["cash"] + int(request.form.get("amount"))
-        db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash = new_cash, id = session["user_id"])
+        db.execute("UPDATE users SET cash = :cash WHERE id=:id", cash=new_cash, id=session["user_id"])
 
         flash("Cash added!")
         return redirect("/")
     else:
         return render_template("cash.html")
+        
 
 def errorhandler(e):
     """Handle error"""
