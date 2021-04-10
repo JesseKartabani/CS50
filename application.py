@@ -98,14 +98,8 @@ def buy():
                 shares_price,
                 session["user_id"],
             )
-            db.execute(
-                "INSERT INTO stocks (user_id, symbol, shares, price, operation) VALUES (?, ?, ?, ?, ?)",
-                session["user_id"],
-                symbol.upper(),
-                shares,
-                price["price"],
-                "buy",
-            )
+            db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
+                    user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
 
             flash("Transaction successful")
             return redirect("/")
