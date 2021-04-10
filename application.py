@@ -88,7 +88,7 @@ def buy():
             return apology("invalid symbol")
 
         # Ensure number of shares is a positive integer
-        if int(request.form.get("shares")) < 1:
+        elif int(request.form.get("shares")) < 1:
             return apology("invalid number of shares")
         elif not request.form.get("shares").isdigit():
             return apology("invalid number of shares")
