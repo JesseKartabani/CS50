@@ -88,28 +88,28 @@ def buy():
             return apology("You don't have enough money for this transaction")
 
         # Check if user already has one or more stocks from the same company
-        stock = db.execute("SELECT amount FROM stocks WHERE user_id = :user AND symbol = :symbol",
+        stock = db.execute("SELECT shares FROM stocks WHERE user_id = :user AND symbol = :symbol",
                           user=session["user_id"], symbol=symbol)
 
         # Insert new row into the stock table
         if not stock:
-            db.execute("INSERT INTO stocks(user_id, symbol, amount) VALUES (:user, :symbol, :amount)",
-                user=session["user_id"], symbol=symbol, amount=amount)
+            db.execute("INSERT INTO stocks(user_id, symbol, shares) VALUES (:user, :symbol, :shares)",
+                user=session["user_id"], symbol=symbol, shares=shares)
 
         # Update row into the stock table
         else:
-            amount += stock[0]['amount']
+            shares += stock[0]['shares']
 
-            db.execute("UPDATE stocks SET amount = :amount WHERE user_id = :user AND symbol = :symbol",
-                user=session["user_id"], symbol=symbol, amount=amount)
+            db.execute("UPDATE stocks SET shares = :shares WHERE user_id = :user AND symbol = :symbol",
+                user=session["user_id"], symbol=symbol, shares=shares)
 
         # Update user's cash
         db.execute("UPDATE users SET cash = :cash WHERE id = :user",
                           cash=cash_after, user=session["user_id"])
 
         # Update history table
-        db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
-                user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
+        db.execute("INSERT INTO transactions(user_id, symbol, shares, value) VALUES (:user, :symbol, :shares, :value)",
+                user=session["user_id"], symbol=symbol, shares=shares, value=round(price*float(amount)))
 
         # Redirect user to index page with a success message
         flash("Bought!")
