@@ -219,34 +219,40 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # Ensure username was submitted
+ # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 400)
+            return apology("must provide username", 403)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 400)
-            
-        # Ensure password is confirmed
-        elif not request.form.get("confirmation"):
-            return apology("must confirm password", 400)
-            
-        # Ensure password and password confirmation match
-        elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("password and password confirmation must match", 400)
-        try:
-            primary_key = db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",
-                    username=request.form.get("username"),
-                    hash=generate_password_hash(request.form.get("password")))
-        except:
-            return apology("username already exists", 403)
-        if primary_key is None:
-            return apology("registration error", 403)
-        session["user_id"] = primary_key
-        return redirect("index")
-                    
+            return apology("must provide password", 403)
+
+        # Ensure confirm password is correct
+        elif request.form.get("password") != request.form.get("confirm-password"):
+            return apology("The passwords don't match", 403)
+
+        # Query database for username if already exists
+        elif db.execute("SELECT * FROM users WHERE username = :username",
+            username=request.form.get("username")):
+            return apology("Username already taken", 403)
+
+        # Insert user and hash of the password into the table
+        db.execute("INSERT INTO users(username, hash) VALUES (:username, :hash)",
+            username=request.form.get("username"), hash=generate_password_hash(request.form.get("password")))
+
+        # Query database for username
+        rows = db.execute("SELECT * FROM users WHERE username = :username",
+            username=request.form.get("username"))
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+        return redirect("/")
+
     else:
         return render_template("register.html")
+
     """Register user"""
     
 
