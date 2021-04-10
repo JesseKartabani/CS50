@@ -70,56 +70,55 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-        stock = lookup(request.form.get("symbol"))
+        # Obtain the data necessary for the transaction
+        amount=int(request.form.get("amount"))
+        symbol=lookup(request.form.get("symbol"))['symbol']
 
-        # Ensure valid symbol
+        # Control if the stock symbol is valid
+        if not lookup(symbol):
+            return apology("Could not find the stock")
+
+        # Calculate total value of the transaction
+        price=lookup(symbol)['price']
+        cash = db.execute("SELECT cash FROM users WHERE id = :user",
+                          user=session["user_id"])[0]['cash']
+        cash_after = cash - price * float(amount)
+
+        # Check if current cash is enough for transaction
+        if cash_after < 0:
+            return apology("You don't have enough money for this transaction")
+
+        # Check if user already has one or more stocks from the same company
+        stock = db.execute("SELECT amount FROM stocks WHERE user_id = :user AND symbol = :symbol",
+                          user=session["user_id"], symbol=symbol)
+
+        # Insert new row into the stock table
         if not stock:
-            return apology("invalid symbol", 400)
+            db.execute("INSERT INTO stocks(user_id, symbol, amount) VALUES (:user, :symbol, :amount)",
+                user=session["user_id"], symbol=symbol, amount=amount)
 
-        # Ensure valid number of shares
-        try:
-            shares = int(request.form.get("shares"))
-            if shares < 1:
-                return apology("Shares must be positive number", 400)
-        except:
-            return apology("Shares must be positive number", 400)
-
-        # Select user's money
-        money = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
-
-        # Check if user has enough money to buy shares
-        if not money or money[0]["cash"] < stock["price"] * shares:
-            return apology("Can't afford shares", 400)
-
-        # Update history
-        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        db.execute("INSERT INTO histories (symbol, shares, price, id, transacted) VALUES(:symbol, :shares, :price, :id, :transacted)",
-                   symbol=stock["symbol"], shares=shares, price=stock["price"], id=session["user_id"], transacted=now)
-
-        # Update user's cash
-        db.execute("UPDATE users SET cash = cash - :cash WHERE id = :id", cash=stock["price"] * shares, id=session["user_id"])
-
-        # Select user shares of specified symbol
-        user_shares = db.execute("SELECT shares FROM portfolio WHERE id = :id AND symbol = :symbol",
-                                 id=session["user_id"], symbol=stock["symbol"])
-
-        # If user has no shares of symbol, create new stock
-        if not user_shares:
-            user_shares = db.execute("INSERT INTO portfolio (name, symbol, shares, price, total, id) VALUES(:name, :symbol, :shares, :price, :total, :id)",
-                                     name=stock["name"], symbol=stock["symbol"], shares=shares, price=stock["price"], total=usd(stock["price"] * shares), id=session["user_id"])
-
-        # If user does, increment the shares count
+        # update row into the stock table
         else:
-            shares_count = user_shares[0]["shares"] + shares
-            db.execute("UPDATE portfolio SET shares = :shares WHERE symbol = :symbol AND id = :id",
-                       shares=shares_count, symbol=stock["symbol"], id=session["user_id"])
+            amount += stock[0]['amount']
 
-        # Redirect user to index page after they make a purchase
+            db.execute("UPDATE stocks SET amount = :amount WHERE user_id = :user AND symbol = :symbol",
+                user=session["user_id"], symbol=symbol, amount=amount)
+
+        # update user's cash
+        db.execute("UPDATE users SET cash = :cash WHERE id = :user",
+                          cash=cash_after, user=session["user_id"])
+
+        # Update history table
+        db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
+                user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
+
+        # Redirect user to index page with a success message
+        flash("Bought!")
         return redirect("/")
-
+    
     else:
         return render_template("buy.html")
-        
+     
     """Buy amount of stock"""
 
 
