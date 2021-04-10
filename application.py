@@ -80,7 +80,6 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-
     if request.method == 'POST':
         symbol = request.form.get("symbol")
         # Ensure symbol is valid
