@@ -5,17 +5,48 @@
 {% endblock %}
 
 {% block main %}
-    <p>Register or <a href='/login'>login</a> if you already have an account</p><br>
-    <form action="/register" method="post">
+    <form action="/register" method="post" id="registration">
         <div class="form-group">
-            <input id='username' autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            <input autocomplete="off" autofocus name="username" id="username" type="text" placeholder="Username" class="form-control">
         </div>
         <div class="form-group">
-            <input id='pass' class="form-control" name="password" placeholder="Password" type="password">
+            <input type="password" name="password" placeholder="Password" class="form-control">
         </div>
-        <div class="form-group">
-            <input id='confirm-pass' class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+       <div class="form-group">
+            <input type="password" name="confirmation" placeholder="Confirm password" class="form-control">
+            <small class="form-text text-muted">Please re-enter your password.</small>
         </div>
-        <button id='submit' class="btn btn-primary" type="submit">Register</button>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
+
+    <script>
+        const form = document.querySelector('#registration');
+
+        // Send POST request to Flask API route and check if username exists in database
+        form.addEventListener('submit', (e) => {
+            // Prevent page from refreshing
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+
+            fetch('/username-availability', {
+               method: 'POST',
+               mode: 'same-origin',
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(username),
+            })
+                .then(res => res.json())
+                .then(({ available }) => {
+                    //  Alert the user if username is not available
+                    if (!available || username === '')
+                        alert('Username not available');
+                    else
+                        // Continue normal behaviour of the form (reverse e.preventDefault)
+                        e.target.submit();
+
+                });
+        });
+    </script>
 {% endblock %}
