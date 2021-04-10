@@ -70,8 +70,7 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-# Obtain the data necessary for the transaction
-        amount=int(request.form.get("amount"))
+        amount=int(request.form.get("shares"))
         symbol=lookup(request.form.get("symbol"))['symbol']
 
         # Control if the stock symbol is valid
@@ -82,7 +81,7 @@ def buy():
         price=lookup(symbol)['price']
         cash = db.execute("SELECT cash FROM users WHERE id = :user",
                           user=session["user_id"])[0]['cash']
-        cash_after = cash - price * float(amount)
+        cash_after = cash - price * float(shares)
 
         # Check if current cash is enough for transaction
         if cash_after < 0:
