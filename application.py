@@ -99,7 +99,7 @@ def buy():
                 session["user_id"],
             )
             db.execute(
-                "INSERT INTO stocks (userID, symbol, shares, price, operation) VALUES (?, ?, ?, ?, ?)",
+                "INSERT INTO stocks (user_id, symbol, shares, price, operation) VALUES (?, ?, ?, ?, ?)",
                 session["user_id"],
                 symbol.upper(),
                 shares,
