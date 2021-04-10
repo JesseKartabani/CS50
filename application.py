@@ -71,7 +71,7 @@ def index():
 def buy():
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        amount=int(request.form.get("amount"))
+        price = lookup(symbol)
         shares = request.form.get("shares")
         user_cash = db.execute(
             "SELECT cash FROM users WHERE id = ? ", session["user_id"]
@@ -98,8 +98,14 @@ def buy():
                 shares_price,
                 session["user_id"],
             )
-            db.execute("INSERT INTO transactions(user_id, symbol, amount, value) VALUES (:user, :symbol, :amount, :value)",
-                    user=session["user_id"], symbol=symbol, amount=amount, value=round(price*float(amount)))
+            db.execute(
+                "INSERT INTO transactions (user_id, symbol, shares, price, operation) VALUES (?, ?, ?, ?, ?)",
+                session["user_id"],
+                symbol.upper(),
+                shares,
+                price["price"],
+                "buy",
+            )
 
             flash("Transaction successful")
             return redirect("/")
