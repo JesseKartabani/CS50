@@ -83,14 +83,12 @@ def buy():
 
     if request.method == 'POST':
         symbol = request.form.get("symbol")
-        # Ensure symbol is valid and number of shares is a positive integer
+        # Ensure symbol is valid
         if lookup(symbol) == None:
             return apology("invalid symbol")
-
+            
         # Ensure number of shares is a positive integer
-        elif int(request.form.get("shares")) < 1:
-            return apology("invalid number of shares")
-        elif not request.form.get("shares").isdigit():
+        if int(request.form.get("shares")) < 1:
             return apology("invalid number of shares")
 
         stock_price = lookup(symbol)["price"]
@@ -137,7 +135,6 @@ def history():
 def login():
     """Log user in"""
 
-    # Forget any user_id
     session.clear()
 
     # User reached route via POST (as by submitting a form via POST)
@@ -218,7 +215,6 @@ def username_available():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-
     if request.method == 'POST':
         # Ensure username was submitted and unique (incase javascript is disabled)
         if not request.form.get("username"):
@@ -255,7 +251,6 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-
     if request.method == 'POST':
         # Ensure a symbol is selected
         if request.form.get("symbol") == None:
