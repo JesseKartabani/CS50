@@ -128,6 +128,8 @@ def buy():
         return render_template("success.html", action="bought", quantity=quantity,
                                 name=stock["name"], total=usd(total_price), funds=usd(funds_left))
         
+    else:
+        return render_template("buy.html")
     """Buy amount of stock"""
 
 
