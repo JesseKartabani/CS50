@@ -70,12 +70,11 @@ def index():
 @login_required
 def buy():
     if request.method == "POST":
-  # ensure a symbol and quantity were submited
-        if not request.form.get("symbol") or not request.form.get("quantity") or int(request.form.get("quantity")) < 1:
+        if not request.form.get("symbol") or not request.form.get("stocks") or int(request.form.get("stocks")) < 1:
             return render_template("buy.html")
         
         symbol = request.form.get("symbol").upper()
-        quantity = request.form.get("quantity")
+        stocks = request.form.get("stocks")
         user_id = session["user_id"]
         
         # lookup the stock
@@ -86,7 +85,7 @@ def buy():
             return apology("symbol not found")
 
         # calculate total price
-        total_price = float(stock["price"]) * float(quantity)
+        total_price = float(stock["price"]) * float(stocks)
         
         user = db.execute("SELECT * FROM users WHERE id = :id", id=user_id)
         funds = float(user[0]["cash"])
@@ -104,28 +103,28 @@ def buy():
         # update with new price if already owned   
         if len(stock_db) == 1:
             
-            new_quantity = int(stock_db[0]["quantity"]) + int(quantity)
+            new_stocks = int(stock_db[0]["stocks"]) + int(stocks)
             new_total = float(stock_db[0]["total"]) + total_price
-            new_pps = "%.2f"%(new_total / float(new_quantity))
+            new_pps = "%.2f"%(new_total / float(new_stocks))
             
-            db.execute("UPDATE stocks SET quantity = :quantity, total = :total, pps = :pps WHERE user_id = :user_id AND symbol = :symbol",
-                        quantity=new_quantity, total=new_total, pps=new_pps, user_id=user_id, symbol=symbol)
+            db.execute("UPDATE stocks SET stocks = :stocks, total = :total, pps = :pps WHERE user_id = :user_id AND symbol = :symbol",
+                        stocks=new_stocks, total=new_total, pps=new_pps, user_id=user_id, symbol=symbol)
             
         # else create a new entry in db
         else:
             
-            db.execute("INSERT INTO stocks (user_id, symbol, quantity, total, pps) VALUES (:user_id, :symbol, :quantity, :total, :pps)",
-                        user_id=user_id, symbol=symbol, quantity=quantity, total=total_price, pps=stock["price"])
+            db.execute("INSERT INTO stocks (user_id, symbol, stocks, total, pps) VALUES (:user_id, :symbol, :stocks, :total, :pps)",
+                        user_id=user_id, symbol=symbol, stocks=stocks, total=total_price, pps=stock["price"])
                         
         # modify available funds
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=funds_left, id=user_id)
         
         # commit to history
-        db.execute("INSERT INTO history (user_id, action, symbol, quantity, pps) VALUES (:user_id, :action, :symbol, :quantity, :pps)",
-                    user_id=user_id, action=1, symbol=symbol, quantity=quantity, pps=stock["price"])
+        db.execute("INSERT INTO history (user_id, action, symbol, stocks, pps) VALUES (:user_id, :action, :symbol, :stocks, :pps)",
+                    user_id=user_id, action=1, symbol=symbol, stocks=stocks, pps=stock["price"])
         
         # send a success message
-        return render_template("success.html", action="bought", quantity=quantity,
+        return render_template("success.html", action="bought", stocks=stocks,
                                 name=stock["name"], total=usd(total_price), funds=usd(funds_left))
         
     else:
