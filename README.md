@@ -9,8 +9,8 @@ the four directon buttons relative to the direction its headed in. The player's 
 in the game is to achieve maxium points as possible by collecting food or fruits. The
 player loses once the snake hits the wall or hits itself.
 
-This is a remake of the classic snake game, made with the pygame module and Python3.
-main.py is responsible for running the enitre game.
+This is my CS50 final project a remake of the classic snake game, made with the 
+pygame module and Python3. main.py is responsible for running the enitre game.
 
 Design: There are many ways to go about designing snake. So how are we going to do this?
 By using the redrawWindow function I fist filled the screen with black and drew out a grid. 
@@ -28,20 +28,22 @@ which way to turn them.
 
 Adding food: Now that my snake can move around the screen i need something for it to eat or collect.
 Every time we colide with one of these objects we will add a new cibe to the end of our snake.
-We are going to call this item a snack.
-
-The first step to generate a posititon for our "snack". I did this inside the randomSnack()
-function.
+We are going to call this item a snack. The first step to generate a posititon for our "snack".
+I did this inside the randomSnack() function.
 
 Running the game: I didnt want the game to be run through the command line so i created a batch
 file using this syntax 
 "C:\Users\Jesse\Desktop\Code\python.exe" 
 "C:\Users\Jesse\Desktop\CS50\FinalProject\Snake\main.py"
 pause
-so i could run it using a desktop icon instead and also give it a unique picture.
+so i could run it using a desktop icon instead of having to type python main.py everytime
+and also give it a unique icon picture.
 
 More info on pygame:
 https://www.javatpoint.com/pygame
+
+This was the full rundown of my own take and make of the Snake game.
+I hope you can have some fun with it by dowloading the source code yourself!
 
 
 
