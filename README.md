@@ -7,5 +7,6 @@ for a better understaning of the contents here: https://cs50.harvard.edu/x/2021/
 Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web programming. Languages include C, Python, and SQL plus HTML, CSS, and JavaScript. Problem sets inspired by the arts, humanities, social sciences, and sciences. Course culminates in a final project.
 
 
-Disclaimer if you are a currently taking CS50 you shouldn't be looking at this repository as it
+## Disclaimer 
+If you are a currently taking CS50 you shouldn't be looking at this repository as it
 violates the course's policy on academic honesty!
