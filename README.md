@@ -24,3 +24,6 @@ violates the course's policy on academic honesty!
 #### [Week 9](https://github.com/jesse1224/CS50/tree/main/Week9)
 #### [Week 10](https://github.com/jesse1224/CS50/tree/main/Week10)
 #### [Final Project](https://github.com/jesse1224/CS50/tree/main/Final%20Project/Snake)
+
+## CS50 Certificate
+[Cert](![image](https://user-images.githubusercontent.com/69617120/115339736-b79df880-a1e8-11eb-9610-ff0bc242514a.png)
