@@ -6,7 +6,7 @@ A snake game is an arcade maze game which has been developed by Gremlin Industri
 published by Sega in October 1976. It is considered to be a skillful game and has 
 popularized among people for generations. The snake in the Snake game is controlled using
 the four directon buttons relative to the direction its headed in. The player's objective
-in the game is to achieve maxium points as possible by collecting food or fruits. The
+in the game is to achieve maximum points as possible by collecting food or fruits. The
 player loses once the snake hits the wall or hits itself.
 
 This is my CS50 final project a remake of the classic snake game, made with the 
