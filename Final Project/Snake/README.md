@@ -13,7 +13,7 @@ This is my CS50 final project a remake of the classic snake game, made with the
 pygame module and Python3. main.py is responsible for running the enitre game.
 
 Design: There are many ways to go about designing snake. So how are we going to do this?
-By using the redrawWindow function I fist filled the screen with black and drew out a grid. 
+By using the redrawWindow function I first filled the screen with black and drew out a grid. 
 Then for making the snake, our snake object is going to contain a list of cubes which will 
 represent the snakes body, we also want to draw eyes on the first cube.
 Lastly i needed to add random cubes to the grid for the snake to eat or collect.
