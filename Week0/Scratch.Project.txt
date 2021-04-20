@@ -1,0 +1,3 @@
+My Scratch project is reminiscent of old arcade game's such as pong with my own unique spin.
+All that is required to play this project is a mouse while using very basic controls for example,
+sliding up and down the (y) axis to prevent any of the in game bombs reaching the other side.
