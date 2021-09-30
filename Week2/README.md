@@ -25,4 +25,4 @@ Here, ***L*** is the average number of letters per 100 words in the text, and **
 
 The text the user inputted has 65 letters, 4 sentences, and 14 words. 65 letters per 14 words is an average of about 464.29 letters per 100 words. And 4 sentences per 14 words is an average of about 28.57 sentences per 100 words. Plugged into the Coleman-Liau formula, and rounded to the nearest whole number, we get an answer of 3: so this passage is at a third grade reading level.
 
-If we abstract away the details all that's happening is, as the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. 
+If we abstract away the details all that's happening is that as the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. 
