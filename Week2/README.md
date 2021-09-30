@@ -2,7 +2,9 @@
 
 https://cs50.harvard.edu/x/2021/weeks/2/
 
-## Scrabble.C
+## Scrabble.c
+
+Determines which of two Scrabble words is worth more. 
 
 In the game of Scrabble, players create words to score points, and the number of points is the sum of the point values of each letter in the word.
 
