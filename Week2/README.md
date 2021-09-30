@@ -16,3 +16,5 @@ For example, if we wanted to score the word Code, we would note that in general 
 ## Readability.c
 
 Computes the approximate grade level needed to comprehend any inputed text, using the Coleman-Liau index test. The formula is:
+
+![Formula](https://user-images.githubusercontent.com/69617120/135398061-00d78ce1-fc16-421f-80c4-3422837c1255.PNG)
