@@ -16,5 +16,6 @@ If we were to start with n = 1000 llamas, at the end of the year, we would have 
 
 ## Mario.c
 
-Recreates the structure of pyramid blocks from Super Mario Brothers using hashes with the height decided by the users input. 
+Recreates the structure of pyramid blocks from Super Mario Brothers using hashes with the height decided by the users input.
+
 ![pyramid](https://user-images.githubusercontent.com/69617120/135387973-c86da784-620d-43de-b4d8-aad89f19bdaf.png)
