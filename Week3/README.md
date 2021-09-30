@@ -4,7 +4,11 @@ https://cs50.harvard.edu/x/2021/weeks/3/
 
 # Plurality.c
 
-Command line simulation of a plurality election. This problem set included distrubution code as a starting point, the functions I completed can be found under specification.
+Command line simulation of a plurality election, per the below.
+
+![6Capture](https://user-images.githubusercontent.com/69617120/135426010-faf4925e-7784-409d-b68f-68641470e03d.PNG)
+
+This problem set included distrubution code as a starting point. The functions I completed can be found under specification.
 
 ### Background
 
@@ -19,4 +23,10 @@ Perhaps the simplest way to hold an election, though, is via a method commonly k
   - You may assume that no two candidates will have the same name. 
 - Complete the print_winner function. 
   - The function should print out the name of the candidate who received the most votes in the election, and then print a newline. 
-  - It is possible that the election could end in a tie if multiple candidates each have the maximum number of votes. In that case, you should output the names of each of the winning candidates, each on a separate line. 
+  - It is possible that the election could end in a tie if multiple candidates each have the maximum number of votes. In that case, you should output the names of each of the winning candidates, each on a separate line.
+
+# Runoff.c
+
+Command line simulation of a runoff election. This problem set included distrubution code as a starting point, the functions I completed can be found under specification.
+
+### Background
