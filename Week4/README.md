@@ -6,6 +6,8 @@ https://cs50.harvard.edu/x/2021/weeks/4/
 
 Modifies the volume of a WAV file by taking three command-line arguments. First the name of the original audio file followed by the desired name of the new audio file that should be generated, and finally the factor by which the volume of the original audio file should be scaled. 
 
+![9Capture](https://user-images.githubusercontent.com/69617120/135434393-b8526a76-8cc9-4194-a957-bc7d457f02fa.PNG)
+
 ### ***Background***
 
 WAV files are a common file format for representing audio. WAV files store audio as a sequence of “samples”: numbers that represent the value of some audio signal at a particular point in time. WAV files begin with a 44-byte “header” that contains information about the file itself, including the size of the file, the number of samples per second, and the size of each sample. After the header, the WAV file contains a sequence of samples, each a single 2-byte (16-bit) integer representing the audio signal at a particular point in time.
