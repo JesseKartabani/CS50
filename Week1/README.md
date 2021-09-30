@@ -8,12 +8,7 @@ Promts the user for their name via command line and outputs Hello (name).
 
 ## Population.c
 
-determines how long it takes for a population to reach a particular size.
-
-$ ./population
-Start size: 100
-End size: 200
-Years: 9
+Determines how many years it takes for a population to reach a particular size by prompting the user for a starting population size and the ending population size, then calculates the integer using the formula below.
 
 Say we have a population of n llamas. Each year, n/3 new llamas are born, and n/4 llamas pass away. 
 
