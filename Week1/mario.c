@@ -8,13 +8,13 @@ int main(void)
     int height;
     do
     {
-        height = get_int("Height: ");
+        height = get_int("Height: "); // Prompts the user for input
     }
-    while (height < 1 || height > 8);
+    while (height < 1 || height > 8); // Error checking user input
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) // Looping until height is equal to the user's input
     {
-        print(' ', height - 1 - i);
+        print(' ', height - 1 - i); // Prints out the pyramid
         print('#', i + 1);
         print(' ', 2);
         print('#', i + 1);
