@@ -138,7 +138,7 @@ int get_index(string name)
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO
+    
     int index = get_index(name);
     if (index != -1)
     {
@@ -151,7 +151,7 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO
+    
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -169,7 +169,7 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
+    
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes > (voter_count / 2))
@@ -184,7 +184,7 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    // TODO
+    
     int min = 0;
     bool have_found_first = false;
     for (int i = 0; i < candidate_count; i++)
@@ -208,7 +208,7 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO
+    
     for (int i = 0; i < candidate_count; i++)
     {
         if (!candidates[i].eliminated)
@@ -223,7 +223,7 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
+    
     for (int i = 0; i < candidate_count; i++)
     {
         if (!candidates[i].eliminated)
