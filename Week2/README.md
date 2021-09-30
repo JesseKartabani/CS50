@@ -30,3 +30,19 @@ If we abstract away the details all that's happening is that as the average numb
 ## Caesar.c
 
 Encrypts messages using Caesar's cipher, per the below
+
+![Example](https://user-images.githubusercontent.com/69617120/135401660-6ff1cd83-d336-4ffa-9712-773e94ab2ee6.PNG)
+
+### Background
+
+Supposedly, Caesar (yes, that Caesar) used to “encrypt” (i.e., conceal in a reversible way) confidential messages by shifting each letter therein by some number of places. For instance, he might write A as B, B as C, C as D, …, and, wrapping around alphabetically, Z as A. And so, to say HELLO to someone, Caesar might write IFMMP. Upon receiving such messages from Caesar, recipients would have to “decrypt” them by shifting letters in the opposite direction by the same number of places.
+
+The secrecy of this “cryptosystem” relied on only Caesar and the recipients knowing a secret, the number of places by which Caesar had shifted his letters (e.g., 1). Not particularly secure by modern standards, but, hey, if you’re perhaps the first in the world to do it, pretty secure!
+
+Unencrypted text is generally called plaintext. Encrypted text is generally called ciphertext. And the secret used is called a key.
+
+To be clear, then, here’s how encrypting HELLO with a key of 1 yields IFMMP:
+
+![Ca4pture](https://user-images.githubusercontent.com/69617120/135401899-a3ebd751-9e65-4b84-9701-88dfaad05a5c.PNG)
+
+
