@@ -18,3 +18,5 @@ For example, if we wanted to score the word Code, we would note that in general 
 Computes the approximate grade level needed to comprehend any inputed text, using the Coleman-Liau index test. The formula is:
 
 ![Formula](https://user-images.githubusercontent.com/69617120/135398061-00d78ce1-fc16-421f-80c4-3422837c1255.PNG)
+
+Here, ***L*** is the average number of letters per 100 words in the text, and ***S*** is the average number of sentences per 100 words in the text.
