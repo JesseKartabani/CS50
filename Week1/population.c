@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    // TODO: Prompt for start size
+    // Prompt for start size
     int n, y, b, d, end;
     
     do
@@ -13,7 +13,7 @@ int main(void)
     } 
     while (n < 9);
 
-    // TODO: Prompt for end size
+    // Prompt for end size
  
     do
     {
@@ -21,7 +21,7 @@ int main(void)
     } 
     while (end < n);
 
-    // TODO: Calculate number of years until we reach threshold
+    // Calculate number of years until we reach threshold
     for (y = 0; n < end; y++)
     {
         b = n / 3;
@@ -29,6 +29,6 @@ int main(void)
         n = n + b - d;  
     }
     
-    // TODO: Print number of years
+    // Print number of years
     printf("Years: %i\n", y);
 }
