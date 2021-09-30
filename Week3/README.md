@@ -4,9 +4,7 @@ https://cs50.harvard.edu/x/2021/weeks/3/
 
 # Plurality.c
 
-Command line simulation of a plurality election.
-
-This problem set included distrubution code as a starting point. The functions I completed can be found under specifications.
+Command line simulation of a plurality election. This problem set included distrubution code as a starting point, the functions I completed can be found under specifications.
 
 ### Background
 
