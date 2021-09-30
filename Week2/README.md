@@ -2,7 +2,7 @@
 
 https://cs50.harvard.edu/x/2021/weeks/2/
 
-## Scrabble.c
+# Scrabble.c
 
 Determines which of two Scrabble words is worth more. 
 
@@ -13,7 +13,7 @@ In the game of Scrabble, players create words to score points, and the number of
 For example, if we wanted to score the word Code, we would note that in general Scrabble rules, the C is worth 3 points, the o is worth 1 point, the d is worth 2 points, and the e is worth 1 point. Summing these, we get that Code is worth 3 + 1 + 2 + 1 = 7 points.
 
 
-## Readability.c
+# Readability.c
 
 Computes the approximate grade level needed to comprehend any inputed text, using the Coleman-Liau index test. The formula is:
 
@@ -27,7 +27,7 @@ The text the user inputted has 65 letters, 4 sentences, and 14 words. 65 letters
 
 If we abstract away the details all that's happening is that as the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level.
 
-## Caesar.c
+# Caesar.c
 
 Encrypts messages using Caesar's cipher, per the below
 
