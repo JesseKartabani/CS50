@@ -37,3 +37,10 @@ The free_family function should accept as input a pointer to a person, free memo
 
 - Since this is a recursive function, you should first handle the base case. If the input to the function is NULL, then there’s nothing to free, so your function can return immediately.
 - Otherwise, you should recursively free both of the person’s parents before freeing the child.
+
+# Speller
+
+Command line program that spell-checks .txt files using a hash table, per the below.
+
+![Capturelala](https://user-images.githubusercontent.com/69617120/135560945-dbe03c71-84ab-4d4f-8925-57245eeb4a26.PNG)
+
