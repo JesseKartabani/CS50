@@ -38,3 +38,5 @@ Using this information, we can simulate the entire tournament by repeatedly simu
   - You should use your simulate_tournament to simulate each tournament and determine the winner.
   - Recall that if counts is a dictionary, then syntax like counts[team_name] = x will associate the key stored in team_name with the value stored in x.
   - You can use the in keyword in Python to check if a dictionary has a particular key already. For example, if "Portugal" in counts: will check to see if "Portugal" already has an existing value in the counts dictionary.
+
+#
