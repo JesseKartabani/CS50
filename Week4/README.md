@@ -71,13 +71,13 @@ There are a number of ways to create the effect of blurring or softening an imag
 - The reflect function should take an image and reflect it horizontally.
 - Finally, the blur function should take an image and turn it into a box-blurred version of the same image.
 
-### ***Recover.c***
+# ***Recover.c***
 
 Command line program that recovers deleted JPEGs from a forensic image, per the below. 
 
 ![C11a1pture](https://user-images.githubusercontent.com/69617120/135557589-39f00a5a-79d8-4f39-adb0-ea8b1d86ec47.PNG)
 
-***Background*** 
+### ***Background*** 
 
 Even though JPEGs are more complicated than BMPs, JPEGs have “signatures,” patterns of bytes that can distinguish them from other file formats. Specifically, the first three bytes of JPEGs are 
 
