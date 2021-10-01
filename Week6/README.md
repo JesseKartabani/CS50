@@ -39,4 +39,16 @@ Using this information, we can simulate the entire tournament by repeatedly simu
   - Recall that if counts is a dictionary, then syntax like counts[team_name] = x will associate the key stored in team_name with the value stored in x.
   - You can use the in keyword in Python to check if a dictionary has a particular key already. For example, if "Portugal" in counts: will check to see if "Portugal" already has an existing value in the counts dictionary.
 
-#
+# PSET 6 
+
+The projects below besides DNA are remakes of my previous projects in the python language  
+
+# Hello.py
+
+Prints out a simple greeting to the user, per the below.
+
+![Captu123re](https://user-images.githubusercontent.com/69617120/135575206-e86fc3de-f11a-4f86-b41d-454ad0807881.PNG)
+
+### ***Specification***
+
+Write, in a file called hello.py in ~/pset6/hello, a program that prompts a user for their name, and then prints hello, so-and-so, where so-and-so is their provided name, exactly as you did in Lab 1, except that your program this time should be written in Python.
