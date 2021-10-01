@@ -38,7 +38,7 @@ Command line program that applies filters (greyscale, sepia, reflection and blur
 
 One common filter is the “grayscale” filter, where we take an image and want to convert it to black-and-white. How does that work?
 
-Recall that if the red, green, and blue values are all set to 0x00 (hexadecimal for 0), then the pixel is black. And if all values are set to 0xff (hexadecimal for 255), then the pixel is white. So long as the red, green, and blue values are all equal, the result will be varying shades of gray along the black-white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to black).
+If the red, green, and blue values are all set to 0x00 (hexadecimal for 0), then the pixel is black. And if all values are set to 0xff (hexadecimal for 255), then the pixel is white. So long as the red, green, and blue values are all equal, the result will be varying shades of gray along the black-white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to black).
 
 So to convert a pixel to grayscale, we just need to make sure the red, green, and blue values are all the same value. But how do we know what value to make them? Well, it’s probably reasonable to expect that if the original red, green, and blue values were all pretty high, then the new value should also be pretty high. And if the original values were all low, then the new value should also be low.
 
@@ -48,8 +48,9 @@ If you apply that to each pixel in the image, the result will be an image conver
 
 ***Sepia***
 
-Most image editing programs support a “sepia” filter, which gives images an old-timey feel by making the whole image look a bit reddish-brown.
-
 An image can be converted to sepia by taking each pixel, and computing new red, green, and blue values based on the original values of the three.
 
 There are a number of algorithms for converting an image to sepia, but for this problem, we’ll ask you to use the following algorithm. For each pixel, the sepia color values should be calculated based on the original color values per the below.
+
+![C11apture](https://user-images.githubusercontent.com/69617120/135556336-d596bad0-4e8a-4006-8be9-5a54a42579f9.PNG)
+
