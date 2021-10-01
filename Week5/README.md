@@ -44,3 +44,7 @@ Command line program that spell-checks .txt files using a hash table, per the be
 
 ![Capturelala](https://user-images.githubusercontent.com/69617120/135560945-dbe03c71-84ab-4d4f-8925-57245eeb4a26.PNG)
 
+This project included distribution code. Work completed by me consists of load, hash, size, check, and upload. Implemented as efficiently as possible using a hash table in such a way that TIME IN load, TIME IN check, TIME IN size, and TIME IN unload are all minimized. Minimized in this context meaning fastest run time possible measured in milliseconds, with storgae space being the second priority.
+
+
+
