@@ -1,5 +1,5 @@
 # Snake
-#### Video Demo: https://youtu.be/9jpWAdqM3q4
+
 #### Description: 
 
 A snake game is an arcade maze game which has been developed by Gremlin Industries and 
