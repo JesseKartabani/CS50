@@ -77,6 +77,10 @@ Command line program that recovers deleted JPEGs from a forensic image, per the 
 
 ![C11a1pture](https://user-images.githubusercontent.com/69617120/135557589-39f00a5a-79d8-4f39-adb0-ea8b1d86ec47.PNG)
 
+### ***Usage***
+
+![Cap32ture](https://user-images.githubusercontent.com/69617120/135558445-abee1a1d-663a-4321-bd9b-eabda691013d.PNG)
+
 ### ***Background*** 
 
 Even though JPEGs are more complicated than BMPs, JPEGs have “signatures,” patterns of bytes that can distinguish them from other file formats. Specifically, the first three bytes of JPEGs are 
