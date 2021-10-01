@@ -1,6 +1,6 @@
 # CS50: Introduction to Computer Science | Harvard University
 
-## Taught by David J. Malan
+## Conducted by David J. Malan
 
 Repository encompassing all my soloutions to CS50s 2021 Introduction to Computer Science.
 Including 9 problem sets 9 labs and one final project, you can look on Harvards OpenCourseWare
