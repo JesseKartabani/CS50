@@ -97,4 +97,13 @@ The implication of all these details is that you, the investigator, can probably
 
 Realize, of course, that JPEGs can span contiguous blocks. Otherwise, no JPEG could be larger than 512 B. But the last byte of a JPEG might not fall at the very end of a block. Recall the possibility of slack space. But not to worry. Because this memory card was brand-new when I started snapping photos, odds are it’d been “zeroed” (i.e., filled with 0s) by the manufacturer, in which case any slack space will be filled with 0s. It’s okay if those trailing 0s end up in the JPEGs you recover; they should still be viewable. 
 
-I’ve gone ahead and created a “forensic image” of the card, storing its contents, byte after byte, in a file called card.raw. So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs. 
+I’ve gone ahead and created a “forensic image” of the card, storing its contents, byte after byte, in a file called card.raw. So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs.
+
+### ***Specification***
+
+- Implement your program in a file called recover.c in a directory called recover.
+- Your program should accept exactly one command-line argument, the name of a forensic image from which to recover JPEGs.
+- If your program is not executed with exactly one command-line argument, it should remind the user of correct usage, and main should return 1.
+- If the forensic image cannot be opened for reading, your program should inform the user as much, and main should return 1.
+- The files you generate should each be named ###.jpg, where ### is a three-digit decimal number, starting with 000 for the first image and counting up.
+- Your program, if it uses malloc, must not leak any memory.
