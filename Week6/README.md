@@ -47,8 +47,22 @@ The projects below besides DNA are remakes of my previous projects in the python
 
 Prints out a simple greeting to the user, per the below.
 
-![Captu123re](https://user-images.githubusercontent.com/69617120/135575206-e86fc3de-f11a-4f86-b41d-454ad0807881.PNG)
+![Example](https://user-images.githubusercontent.com/69617120/135575206-e86fc3de-f11a-4f86-b41d-454ad0807881.PNG)
 
 ### ***Specification***
 
 Write, in a file called hello.py in ~/pset6/hello, a program that prompts a user for their name, and then prints hello, so-and-so, where so-and-so is their provided name, exactly as you did in Lab 1, except that your program this time should be written in Python.
+
+# Mario.py
+
+Recreates the structure of pyramid blocks from Super Mario Brothers using hashes with the height decided by the users input.
+
+![pyramid](https://user-images.githubusercontent.com/69617120/135575531-11cbfadf-fca8-4097-afa2-d84dd8c27b8c.png)
+
+### ***Specification***
+
+- Write, in a file called mario.py in ~/pset6/mario/less/, a program that recreates the half-pyramid using hashes (#) for blocks, exactly as you did in Problem Set 1, except that your program this time should be written in Python.
+- To make things more interesting, first prompt the user with get_int for the half-pyramid’s height, a positive integer between 1 and 8, inclusive.
+- If the user fails to provide a positive integer no greater than 8, you should re-prompt for the same again.
+- Then, generate (with the help of print and one or more loops) the desired half-pyramid.
+- Take care to align the bottom-left corner of your half-pyramid with the left-hand edge of your terminal window.
