@@ -48,6 +48,7 @@ This project included distribution code. Work completed by me consists of load, 
 
 ### ***Specification***
 
+
 - You may not alter speller.c, dictionary.h, or Makefile.
 - You may alter dictionary.c (and, in fact, must in order to complete the implementations of load, hash, size, check, and unload), but you may not alter the declarations (i.e., prototypes) of load, hash, size, check, or unload. You may, though, add new functions and (local or global) variables to dictionary.c.
 - You may change the value of N in dictionary.c, so that your hash table can have more buckets.
