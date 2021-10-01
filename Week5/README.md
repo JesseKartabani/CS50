@@ -25,7 +25,7 @@ Complete the implementation of inheritance.c, such that it creates a family of a
   - Each person should have alleles assigned to them. The oldest generation should have alleles randomly chosen (as by calling the random_allele function), and younger generations should inherit one allele (chosen at random) from each parent.
   - Each person should have parents assigned to them. The oldest generation should have both parents set to NULL, and younger generations should have parents be an array of two pointers, each pointing to a different parent.
 
- create_family function
+ create_family Function.
 
 - First, you should allocate memory for a new person. Recall that you can use malloc to allocate memory, and sizeof(person) to get the number of bytes to allocate.
 - Next, we’ve included a condition to check if generations > 1.
