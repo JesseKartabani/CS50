@@ -58,7 +58,6 @@ This project included distribution code. Work completed by me consists of load, 
 - Your spell checker may only take text and, optionally, dictionary as input. Although you might be inclined (particularly if among those more comfortable) to “pre-process” our default dictionary in order to derive an “ideal hash function” for it, you may not save the output of any such pre-processing to disk in order to load it back into memory on subsequent runs of your spell checker in order to gain an advantage.
 - Your spell checker must not leak any memory. Be sure to check for leaks with valgrind.
 - You may search for (good) hash functions online, so long as you cite the origin of any hash function you integrate into your own code.
-
 - Implement load.
 - Implement hash.
 - Implement size.
