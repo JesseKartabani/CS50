@@ -44,8 +44,6 @@ So to convert a pixel to grayscale, we just need to make sure the red, green, an
 
 In fact, to ensure each pixel of the new image still has the same general brightness or darkness as the old image, we can take the average of the red, green, and blue values to determine what shade of grey to make the new pixel.
 
-If you apply that to each pixel in the image, the result will be an image converted to grayscale.
-
 ***Sepia***
 
 An image can be converted to sepia by taking each pixel, and computing new red, green, and blue values based on the original values of the three.
@@ -58,7 +56,7 @@ Of course, the result of each of these formulas may not be an integer, but each 
 
 ***Reflection***
 
-Some filters might also move pixels around. Reflecting an image, for example, is a filter where the resulting image is what you would get by placing the original image in front of a mirror. So any pixels on the left side of the image should end up on the right, and vice versa.
+Reflecting an image for example, it's a filter where the resulting image is what you would get by placing the original image in front of a mirror. So any pixels on the left side of the image should end up on the right, and vice versa.
 
 Note that all of the original pixels of the original image will still be present in the reflected image, it’s just that those pixels may have rearranged to be in a different place in the image.
 
