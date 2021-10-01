@@ -4,7 +4,7 @@ https://cs50.harvard.edu/x/2021/weeks/5/
 
 # Inheritance
 
-Simulate the inheritance of blood types for each member of a family.
+Simulates the inheritance of blood types for each member of a family.
 
 This project included distribution code, work completed by me can be found under implementation details.
 
