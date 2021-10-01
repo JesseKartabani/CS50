@@ -25,3 +25,31 @@ Scaling each sample value by a given factor has the effect of changing the volum
   - You may assume that the WAV file will use 16-bit signed values as samples. In practice, WAV files can have varying numbers of bits per sample, but we’ll assume 16-bit samples for this lab.
  
 - If the program uses malloc, it must not leak any memory.
+
+# Filter.c
+
+Command line program that applies filters (greyscale, sepia, reflection and blur) to BMPs, per the below. 
+
+![Captu99re](https://user-images.githubusercontent.com/69617120/135555981-9a58e280-8c22-4ff5-8f40-adddf04fcc90.PNG)
+
+### ***Background***
+
+***Grayscale***
+
+One common filter is the “grayscale” filter, where we take an image and want to convert it to black-and-white. How does that work?
+
+Recall that if the red, green, and blue values are all set to 0x00 (hexadecimal for 0), then the pixel is black. And if all values are set to 0xff (hexadecimal for 255), then the pixel is white. So long as the red, green, and blue values are all equal, the result will be varying shades of gray along the black-white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to black).
+
+So to convert a pixel to grayscale, we just need to make sure the red, green, and blue values are all the same value. But how do we know what value to make them? Well, it’s probably reasonable to expect that if the original red, green, and blue values were all pretty high, then the new value should also be pretty high. And if the original values were all low, then the new value should also be low.
+
+In fact, to ensure each pixel of the new image still has the same general brightness or darkness as the old image, we can take the average of the red, green, and blue values to determine what shade of grey to make the new pixel.
+
+If you apply that to each pixel in the image, the result will be an image converted to grayscale.
+
+***Sepia***
+
+Most image editing programs support a “sepia” filter, which gives images an old-timey feel by making the whole image look a bit reddish-brown.
+
+An image can be converted to sepia by taking each pixel, and computing new red, green, and blue values based on the original values of the three.
+
+There are a number of algorithms for converting an image to sepia, but for this problem, we’ll ask you to use the following algorithm. For each pixel, the sepia color values should be calculated based on the original color values per the below.
