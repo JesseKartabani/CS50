@@ -1,6 +1,8 @@
 # CS50: Introduction to Computer Science | Harvard University
+
 ## Taught by David J. Malan
-This is a repository for all my soloutions to CS50s 2021 Introduction to Computer Science.
+
+Repository encompassing all my soloutions to CS50s 2021 Introduction to Computer Science.
 Including 9 problem sets 9 labs and one final project, you can look on Harvards OpenCourseWare
 for a better understaning of the contents here: https://cs50.harvard.edu/x/2021/
 
@@ -8,10 +10,12 @@ Topics include abstraction, algorithms, data structures, encapsulation, resource
 
 
 ## Disclaimer 
+
 If you are a currently taking CS50 you shouldn't be looking at this repository as it
 violates the course's policy on academic honesty!
 
 ## Table of Contents
+
 #### [Week 0](https://github.com/jesse1224/CS50/tree/main/Week0)
 #### [Week 1](https://github.com/jesse1224/CS50/tree/main/Week1)
 #### [Week 2](https://github.com/jesse1224/CS50/tree/main/Week2)
@@ -26,4 +30,5 @@ violates the course's policy on academic honesty!
 #### [Final Project](https://github.com/jesse1224/CS50/tree/main/Final%20Project/Snake)
 
 ## CS50 Certificate
+
 ![image](https://user-images.githubusercontent.com/69617120/115339736-b79df880-a1e8-11eb-9610-ff0bc242514a.png)
