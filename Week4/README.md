@@ -50,7 +50,25 @@ If you apply that to each pixel in the image, the result will be an image conver
 
 An image can be converted to sepia by taking each pixel, and computing new red, green, and blue values based on the original values of the three.
 
-There are a number of algorithms for converting an image to sepia, but for this problem, we’ll ask you to use the following algorithm. For each pixel, the sepia color values should be calculated based on the original color values per the below.
+There are a number of algorithms for converting an image to sepia, but for this problem, i'll use the following algorithm. For each pixel, the sepia color values should be calculated based on the original color values per the below.
 
 ![C11apture](https://user-images.githubusercontent.com/69617120/135556336-d596bad0-4e8a-4006-8be9-5a54a42579f9.PNG)
 
+Of course, the result of each of these formulas may not be an integer, but each value could be rounded to the nearest integer. It’s also possible that the result of the formula is a number greater than 255, the maximum value for an 8-bit color value. In that case, the red, green, and blue values should be capped at 255. As a result, we can guarantee that the resulting red, green, and blue values will be whole numbers between 0 and 255, inclusive.
+
+***Reflection***
+
+Some filters might also move pixels around. Reflecting an image, for example, is a filter where the resulting image is what you would get by placing the original image in front of a mirror. So any pixels on the left side of the image should end up on the right, and vice versa.
+
+Note that all of the original pixels of the original image will still be present in the reflected image, it’s just that those pixels may have rearranged to be in a different place in the image.
+
+***Blur***
+
+There are a number of ways to create the effect of blurring or softening an image. For this problem, we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a new value by averaging the color values of neighboring pixels.
+
+### ***Specification***
+
+- The function grayscale should take an image and turn it into a black-and-white version of the same image.
+- The function sepia should take an image and turn it into a sepia version of the same image.
+- The reflect function should take an image and reflect it horizontally.
+- Finally, the blur function should take an image and turn it into a box-blurred version of the same image.
