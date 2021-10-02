@@ -40,3 +40,5 @@ For each of the following problems, you should write a single SQL query that out
 # PSET 7
 
 # Movie SQL Queries
+
+Includes thirteen different SQL queries to answer a variety of different questions using a database of movies (information courtesy of [IMDb](http://www.imdb.com/) used with permission). 
