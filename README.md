@@ -16,7 +16,7 @@ violates the course's policy on academic honesty!
 
 ## Table of Contents
 
-#### [Week 0](https://github.com/jesse1224/CS50/tree/main/Week0)
+#### [Week 0](https://github.com/jesse1224/CS50/tree/main/Week0) *Scratch*
 #### [Week 1](https://github.com/jesse1224/CS50/tree/main/Week1)
 #### [Week 2](https://github.com/jesse1224/CS50/tree/main/Week2)
 #### [Week 3](https://github.com/jesse1224/CS50/tree/main/Week3)
