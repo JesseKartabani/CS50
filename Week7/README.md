@@ -103,3 +103,5 @@ You’re welcome to check your queries’ results against IMDb itself, but reali
     - Kevin Bacon himself should not be included in the resulting list. 
 
 # Fiftyville SQL Queries
+
+SQL queries on an SQLite database in order to identify who committed a robbery, what city the thief escaped to, and who the thief’s accomplice is who helped them escape. 
