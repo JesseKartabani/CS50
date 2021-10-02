@@ -2,7 +2,7 @@
 
 https://cs50.harvard.edu/x/2021/weeks/7/
 
-# Lab 7 Song SQL queries
+# Lab 7 Song SQL Queries
 
 Includes eight different SQL queries to answer a variety of different questions using a database of songs (dataset from [Kaggle](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018)).
 
@@ -36,3 +36,7 @@ For each of the following problems, you should write a single SQL query that out
 8. In 8.sql, write a SQL query that lists the names of the songs that feature other artists. 
     - Songs that feature other artists will include “feat.” in the name of the song. 
     - Your query should output a table with a single column for the name of each song. 
+
+# PSET 7
+
+# Movie SQL Queries
