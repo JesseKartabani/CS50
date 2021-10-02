@@ -4,7 +4,7 @@ https://cs50.harvard.edu/x/2021/weeks/7/
 
 # Lab 7 Song SQL queries
 
-Includes eight different SQL queries to answer a variety of different questions using a database of songs (dataset from [Kaggle] (https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018)).
+Includes eight different SQL queries to answer a variety of different questions using a database of songs (dataset from [Kaggle](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018)).
 
 ### ***Implementation Details***
 
