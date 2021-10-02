@@ -17,16 +17,16 @@ violates the course's policy on academic honesty!
 ## Table of Contents
 
 #### [Week 0](https://github.com/jesse1224/CS50/tree/main/Week0) *Scratch*
-#### [Week 1](https://github.com/jesse1224/CS50/tree/main/Week1)
-#### [Week 2](https://github.com/jesse1224/CS50/tree/main/Week2)
-#### [Week 3](https://github.com/jesse1224/CS50/tree/main/Week3)
-#### [Week 4](https://github.com/jesse1224/CS50/tree/main/Week4)
-#### [Week 5](https://github.com/jesse1224/CS50/tree/main/Week5)
-#### [Week 6](https://github.com/jesse1224/CS50/tree/main/Week6)
-#### [Week 7](https://github.com/jesse1224/CS50/tree/main/Week7)
-#### [Week 8](https://github.com/jesse1224/CS50/tree/main/Week8)
-#### [Week 9](https://github.com/jesse1224/CS50/tree/main/Week9)
-#### [Week 10](https://github.com/jesse1224/CS50/tree/main/Week10)
+#### [Week 1](https://github.com/jesse1224/CS50/tree/main/Week1) *C*
+#### [Week 2](https://github.com/jesse1224/CS50/tree/main/Week2) *Arrays*
+#### [Week 3](https://github.com/jesse1224/CS50/tree/main/Week3) *Algorithms*
+#### [Week 4](https://github.com/jesse1224/CS50/tree/main/Week4) *Memory*
+#### [Week 5](https://github.com/jesse1224/CS50/tree/main/Week5) *Data Structures*
+#### [Week 6](https://github.com/jesse1224/CS50/tree/main/Week6) *Python*
+#### [Week 7](https://github.com/jesse1224/CS50/tree/main/Week7) *SQL*
+#### [Week 8](https://github.com/jesse1224/CS50/tree/main/Week8) *HTML, CSS, JavaScript*
+#### [Week 9](https://github.com/jesse1224/CS50/tree/main/Week9) *Flask*
+#### [Week 10](https://github.com/jesse1224/CS50/tree/main/Week10) *Ethics*
 #### [Final Project](https://github.com/jesse1224/CS50/tree/main/Final%20Project/Snake)
 
 ## CS50 Certificate
