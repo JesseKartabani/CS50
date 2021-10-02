@@ -101,3 +101,5 @@ You’re welcome to check your queries’ results against IMDb itself, but reali
     - Your query should output a table with a single column for the name of each person. 
     - There may be multiple people named Kevin Bacon in the database. Be sure to only select the Kevin Bacon born in 1958. 
     - Kevin Bacon himself should not be included in the resulting list. 
+
+# Fiftyville SQL Queries
