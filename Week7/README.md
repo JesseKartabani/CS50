@@ -6,7 +6,7 @@ https://cs50.harvard.edu/x/2021/weeks/7/
 
 Includes eight different SQL queries to answer a variety of different questions using a database of songs (dataset from [Kaggle](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018)).
 
-### ***Implementation Details***
+### **Implementation Details**
 
 For each of the following problems, you should write a single SQL query that outputs the results specified by each problem. Your response must take the form of a single SQL query, though you may nest other queries inside of your query. You should not assume anything about the `id`s of any particular songs or artists: your queries should be accurate even if the `id` of any particular song or person were different. Finally, each query should return only the data necessary to answer the question: if the problem only asks you to output the names of songs, for example, then your query should not also output each song’s tempo. 
 
