@@ -28,7 +28,7 @@ Web application via which users can “buy” and “sell” stocks, a la the be
 
 ![Website](https://user-images.githubusercontent.com/69617120/135743243-d6b533af-cff9-46dc-a9b5-2b2a32812fb8.PNG)
 
-This project included distribution code; features completed by me can be found below implementation details.
+This project included distribution code; features completed by me can be found below specification.
 
 ## **Background**
 
@@ -40,6 +40,18 @@ Users also can retain their data by registering an account, registered accounts 
 
 - HTML, CSS, Bootstrap
 - Python, Flask, Jinja,
-- SQL, SQLite
-- API key [IEX](https://iexcloud.io/console/tokens)
+- SQL, SQLite,
+- Public API key [IEX](https://iexcloud.io/console/tokens)
 
+## **Specification**
+
+***register***
+
+Complete the implementation of `register` in such a way that it allows a user to register for an account via a form.
+- Require that a user input a username, implemented as a text field whose `name` is `username`. Render an apology if the user’s input is blank or the username already exists.
+- Require that a user input a password, implemented as a text field whose `name` is `password`, and then that same password again, implemented as a text field whose `name` is `confirmation`. Render an apology if either input is blank or the passwords do not match.
+- Submit the user’s input via `POST` to `/register`.
+- `INSERT` the new `user` into users, storing a hash of the user’s password, not the password itself. Hash the user’s password with `generate_password_hash` Odds are you’ll want to create a new template (e.g., `register.html`) that’s quite similar to `login.html`.
+- Once the user is registered, you may either automatically log in the user or bring the user to a page where they can log in themselves.
+
+Once you’ve implemented `register` correctly, you should be able to register for an account and log in. And you should be able to see your rows via sqlite3 or phpLiteAdmin.
