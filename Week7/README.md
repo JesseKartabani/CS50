@@ -6,7 +6,7 @@ https://cs50.harvard.edu/x/2021/weeks/7/
 
 Includes eight different SQL queries to answer a variety of different questions using a database of songs (dataset from [Kaggle](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018)).
 
-### **Implementation Details**
+## **Implementation Details**
 
 For each of the following problems, you should write a single SQL query that outputs the results specified by each problem. Your response must take the form of a single SQL query, though you may nest other queries inside of your query. You should not assume anything about the `id`s of any particular songs or artists: your queries should be accurate even if the `id` of any particular song or person were different. Finally, each query should return only the data necessary to answer the question: if the problem only asks you to output the names of songs, for example, then your query should not also output each song’s tempo. 
 
@@ -43,7 +43,7 @@ For each of the following problems, you should write a single SQL query that out
 
 Includes thirteen different SQL queries to answer a variety of different questions using a database of movies (information courtesy of [IMDb](http://www.imdb.com/) used with permission).
 
-### **Specification**
+## **Specification**
 
 For each of the following problems, you should write a single SQL query that outputs the results specified by each problem. Your response must take the form of a single SQL query, though you may nest other queries inside of your query. You should not assume anything about the `id`s of any particular movies or people: your queries should be accurate even if the id of any particular movie or person were different. Finally, each query should return only the data necessary to answer the question: if the problem only asks you to output the names of movies, for example, then your query should not also output each movie’s release year. 
 
@@ -106,7 +106,7 @@ You’re welcome to check your queries’ results against IMDb itself, but reali
 
 SQL queries on an SQLite database in order to identify who committed a robbery, what city the thief escaped to, and who the thief’s accomplice is who helped them escape. 
 
-### **Background** 
+## **Background** 
 
 The CS50 Duck has been stolen! The town of Fiftyville has called upon you to solve the mystery of the stolen duck. Authorities believe that the thief stole the duck and then, shortly afterwards, took a flight out of town with the help of an accomplice. Your goal is to identify: 
 
@@ -118,6 +118,6 @@ All you know is that the theft **took place on July 28, 2020** and that it **too
 
 How will you go about solving this mystery? The Fiftyville authorities have taken some of the town’s records from around the time of the theft and prepared a SQLite database for you, `fiftyville.db`, which contains tables of data from around the town. You can query that table using SQL `SELECT` queries to access the data of interest to you. Using just the information in the database, your task is to solve the mystery.
 
-### **Specification** 
+## **Specification** 
 
 For this problem, equally as important as solving the mystery itself is the process that you use to solve the mystery. In `log.sql`, keep a log of all SQL queries that you run on the database. Above each query, label each with a comment (in SQL, comments are any lines that begin with `--`) describing why you’re running the query and/or what information you’re hoping to get out of that query. You can use comments in the log file to add additional notes about your thought process as you solve the mystery: ultimately, this file should serve as evidence of the process you used to identify the thief! 
