@@ -1,5 +1,7 @@
 # Snake
 
+![In Game Photo](https://user-images.githubusercontent.com/69617120/135745695-0616c4f9-eca7-405c-9e54-7f73a4f64e34.PNG)
+
 ### Description: 
 
 A snake game is an arcade maze game which has been developed by Gremlin Industries and 
