@@ -25,7 +25,7 @@ violates the course's policy on academic honesty!
 #### [Week 6](https://github.com/jesse1224/CS50/tree/main/Week6) *Python*
 #### [Week 7](https://github.com/jesse1224/CS50/tree/main/Week7) *SQL*
 #### [Week 8](https://github.com/jesse1224/CS50/tree/main/Week8) *HTML, CSS, JavaScript*
-#### [Week 9](https://github.com/jesse1224/CS50/tree/main/Week9) *Flask*
+#### [Week 9](https://github.com/jesse1224/CS50/tree/main/Week9) *Flask, Ajax*
 #### [Week 10](https://github.com/jesse1224/CS50/tree/main/Week10) *Ethics*
 #### [Final Project](https://github.com/jesse1224/CS50/tree/main/Final%20Project/Snake)
 
