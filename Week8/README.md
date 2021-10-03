@@ -6,7 +6,7 @@ https://cs50.harvard.edu/x/2021/weeks/8/
 
 Webpage that allows users answer trivia questions constructed with HTML, CSS, and JavaScript.
 
-![Cap21ture](https://user-images.githubusercontent.com/69617120/135735891-ec0f9b4a-9739-438b-b4f5-5c765154e0ee.PNG)
+![Website](https://user-images.githubusercontent.com/69617120/135735891-ec0f9b4a-9739-438b-b4f5-5c765154e0ee.PNG)
 
 This project included distribution code; features completed by me can be found below implementation details. 
 
@@ -32,4 +32,14 @@ Design a webpage using HTML, CSS, and JavaScript to let users answer trivia ques
 
 Simple mock homepage using HTML, CSS, JavaScript and Bootstrap
 
-![Ca12pture](https://user-images.githubusercontent.com/69617120/135736503-3ba21da6-4d1e-4911-a84f-1dd69402c089.PNG)
+![Website](https://user-images.githubusercontent.com/69617120/135736503-3ba21da6-4d1e-4911-a84f-1dd69402c089.PNG)
+
+Implement in your homepage directory a website that must:
+
+- Contain at least four different .html pages, at least one of which is index.html (the main page of your website), and it should be possible to get from any page on your website to any other page by following one or more hyperlinks.
+- Use at least ten (10) distinct HTML tags besides <html>, <head>, <body>, and <title>. Using some tag (e.g., <p>) multiple times still counts as just one (1) of those ten!
+- Integrate one or more features from Bootstrap into your site.
+- Have at least one stylesheet file of your own creation, styles.css, which uses at least five (5) different CSS selectors (e.g. tag (example), class (.example), or ID (#example)), and within which you use a total of at least five (5) different CSS properties, such as font-size, or margin; and
+- Integrate one or more features of JavaScript into your site to make your site more interactive. For example, you can use JavaScript to add alerts, to have an effect at a recurring interval, or to add interactivity to buttons, dropdowns, or forms. Feel free to be creative!
+- Ensure that your site looks nice on browsers both on mobile devices as well as laptops and desktops.
+
