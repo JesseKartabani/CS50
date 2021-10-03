@@ -10,13 +10,13 @@ Simulates the inheritance of blood types for each member of a family.
 
 This project included distribution code, work completed by me can be found under implementation details.
 
-### ***Background***
+## **Background**
 
 A person’s blood type is determined by two alleles (i.e., different forms of a gene). The three possible alleles are A, B, and O, of which each person has two (possibly the same, possibly different). Each of a child’s parents randomly passes one of their two blood type alleles to their child. The possible blood type combinations, then, are: OO, OA, OB, AO, AA, AB, BO, BA, and BB.
 
 For example, if one parent has blood type AO and the other parent has blood type BB, then the child’s possible blood types would be AB and OB, depending on which allele is received from each parent. Similarly, if one parent has blood type AO and the other OB, then the child’s possible blood types would be AO, OB, AB, and OO.
 
-### ***Implementation Details***
+## **Implementation Details**
 
 Complete the implementation of `inheritance.c`, such that it creates a family of a specified generation size and assigns blood type alleles to each family member. The oldest generation will have alleles assigned randomly to them.
 
@@ -46,7 +46,7 @@ Command line program that spell-checks .txt files using a hash table, per the be
 
 This project included distribution code. Work completed by me consists of `load`, `hash`, `size`, `check`, and `unload`. Implemented as efficiently as possible using a hash table in such a way that `TIME IN load`, `TIME IN check`, `TIME IN size`, and `TIME IN unload` are all minimized. Minimized in this context meaning fastest run time possible measured in milliseconds, with storage space being the second priority.
 
-### ***Specification***
+## **Specification**
 
 - You may not alter `speller.c`, `dictionary.h`, or `Makefile`.
 - You may alter `dictionary.c` (and, in fact, must in order to complete the implementations of `load`, `hash`, `size`, `check`, and `unload`), but you may not alter the declarations (i.e., prototypes) of `load`, `hash`, `size`, `check`, or `unload`. You may, though, add new functions and (local or global) variables to `dictionary.c`.
