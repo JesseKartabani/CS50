@@ -41,4 +41,5 @@ Users also can retain their data by registering an account, registered accounts 
 - HTML, CSS, Bootstrap
 - Python, Flask, Jinja,
 - SQL, SQLite
-- API key [IEX](https://iexcloud.io/cloud-login#/register/)"Register for IEX API key"
+- API key [IEX](https://iexcloud.io/console/tokens)
+
