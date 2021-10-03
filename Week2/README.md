@@ -16,7 +16,7 @@ For example, if we wanted to score the word `Code`, we would note that in genera
 
 This project indluded distribution code features completed by me can be found below.
 
-### ***Implementation Details***
+## **Implementation Details**
 
 Complete the implementation of `scrabble.c`, such that it determines the winner of a short scrabble-like game, where two players each enter their word, and the higher scoring player wins.
 
@@ -35,7 +35,7 @@ Computes the approximate grade level needed to comprehend any inputed text, usin
 
 ![Formula](https://user-images.githubusercontent.com/69617120/135398061-00d78ce1-fc16-421f-80c4-3422837c1255.PNG)
 
-### ***Background***
+## **Background**
 
 Here, `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text. For example:
 
@@ -45,7 +45,7 @@ The text the user inputted has 65 letters, 4 sentences, and 14 words. 65 letters
 
 If we abstract away the details all that's happening is that as the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level.
 
-### ***Specification***
+## **Specification**
 
 Design and implement a program, `readability`, that computes the Coleman-Liau index of the text.
 
@@ -61,7 +61,7 @@ Encrypts messages using Caesar's cipher, per the below
 
 ![Example](https://user-images.githubusercontent.com/69617120/135401660-6ff1cd83-d336-4ffa-9712-773e94ab2ee6.PNG)
 
-### ***Background***
+## **Background**
 
 Supposedly, Caesar (yes, that Caesar) used to “encrypt” (i.e., conceal in a reversible way) confidential messages by shifting each letter therein by some number of places. For instance, he might write A as B, B as C, C as D, …, and, wrapping around alphabetically, Z as A. And so, to say HELLO to someone, Caesar might write IFMMP. Upon receiving such messages from Caesar, recipients would have to “decrypt” them by shifting letters in the opposite direction by the same number of places.
 
@@ -79,7 +79,7 @@ ci = (pi + k) % 26
 
 wherein `% 26` here means “remainder when dividing by 26.” This formula perhaps makes the cipher seem more complicated than it is, but it’s really just a concise way of expressing the algorithm precisely. Indeed, for the sake of discussion, think of A (or a) as 0, B (or b) as 1, …, H (or h) as 7, I (or i) as 8, …, and Z (or z) as 25. Suppose that Caesar just wants to say Hi to someone confidentially using, this time, a key, k, of 3. And so his plaintext, p, is Hi, in which case his plaintext’s first character, p0, is H (aka 7), and his plaintext’s second character, p1, is i (aka 8). His ciphertext’s first character, c0, is thus K, and his ciphertext’s second character, c1, is thus L.
 
-### ***Specification***
+## **Specification**
 
 Design and implement a program, `caesar`, that encrypts messages using Caesar’s cipher.
 
