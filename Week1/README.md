@@ -16,7 +16,7 @@ Say we have a population of `n` llamas. Each year, `n/3` new llamas are born, an
 
 If we were to start with `n = 1000` llamas, at the end of the year, we would have `1000 / 3 = 333.33` new llamas. We can’t have a decimal portion of a llama, though, so we’ll truncate the decimal to get `333` new llamas born. `1000 / 4 = 250` llamas will pass away, so we’ll end up with a total of `1000 + 333 - 250 = 1083` llamas at the end of the year.
 
-### ***Implementation Details***
+### **Implementation Details**
 
 Complete the implementation of `population.c`, such that it calculates the number of years required for the population to grow from the start size to the end size.
 
@@ -39,7 +39,7 @@ Program that calculates the minimum number of coins required to give a user chan
 
 ![Example](https://user-images.githubusercontent.com/69617120/135576302-e8d7b570-84c0-460e-b86a-cee888e1f09e.PNG)
 
-### ***Background***
+### **Background**
 
 Using a greedy algorithm cash.c calculates the minimum number of coins owed as change for a cashier. Initially prompting the user for change owed, then printing the minimum number of coins with which that change can be made.
 
@@ -47,7 +47,7 @@ According to the National Institute of Standards and Technology (NIST), a greedy
 
 It turns out that this greedy approach (i.e., algorithm) is not only locally optimal but also globally so for America’s currency (and also the European Union’s). That is, so long as a cashier has enough of each coin, this largest-to-smallest approach will yield the fewest coins possible.
 
-### ***Implementation Details***
+### **Implementation Details**
 
 Implement, in a file called `cash.c` in a `~/pset1/cash` directory, a program that first asks the user how much change is owed and then prints the minimum number of coins with which that change can be made.
 
