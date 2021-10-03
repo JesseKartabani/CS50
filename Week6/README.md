@@ -10,7 +10,7 @@ Program that predicts the percentage chance of winning the FIFA World Cup for ea
 
 Distribution code was included for this project, work I completed encompasses everything listed below implementation details. 
 
-### ***Background***
+## **Background**
 
 In soccer’s World Cup, the knockout round consists of 16 teams. In each round, each team plays another team and the losing teams are eliminated. When only two teams remain, the winner of the final match is the champion.
 
@@ -18,7 +18,7 @@ In soccer, teams are given FIFA Ratings, which are numerical values representing
 
 Using this information, we can simulate the entire tournament by repeatedly simulating rounds until we’re left with just one team. And if we want to estimate how likely it is that any given team wins the tournament, we might simulate the tournament many times (e.g. 1000 simulations) and count how many times each team wins a simulated tournament.
 
-### ***Implementation Details***
+## **Implementation Details**
 
 - First, in `main`, read the team data from the CSV file into your program’s memory, and add each team to the list `teams`.
   - The file to use will be provided as a command-line argument. You can access the name of the file, then, with `sys.argv[1]`.
@@ -49,7 +49,7 @@ Prints out a simple greeting to the user, per the below.
 
 ![Example](https://user-images.githubusercontent.com/69617120/135575206-e86fc3de-f11a-4f86-b41d-454ad0807881.PNG)
 
-### ***Specification***
+## **Specification**
 
 - Write, in a file called `hello.py` in `~/pset6/hello`, a program that prompts a user for their name, and then prints `hello, so-and-so`, where `so-and-so` is their provided name, exactly as you did in Lab 1, except that your program this time should be written in Python.
 
@@ -59,7 +59,7 @@ Recreates the structure of pyramid blocks from Super Mario Brothers using hashes
 
 ![pyramid](https://user-images.githubusercontent.com/69617120/135575531-11cbfadf-fca8-4097-afa2-d84dd8c27b8c.png)
 
-### ***Specification***
+## **Specification**
 
 - Write, in a file called `mario.py` in `~/pset6/mario/less/`, a program that recreates the half-pyramid using hashes (`#`) for blocks, exactly as you did in Problem Set 1, except that your program this time should be written in Python.
 - To make things more interesting, first prompt the user with `get_int` for the half-pyramid’s height, a positive integer between `1` and `8`, inclusive.
@@ -73,7 +73,7 @@ Program that calculates the minimum number of coins required to give a user chan
 
 ![Example](https://user-images.githubusercontent.com/69617120/135576302-e8d7b570-84c0-460e-b86a-cee888e1f09e.PNG)
 
-### ***Background***
+## **Background**
 
 Using a greedy algorithm cash.c calculates the minimum number of coins owed as change for a cashier. Initially prompting the user for change owed, then printing the minimum number of coins with which that change can be made.
 
@@ -81,7 +81,7 @@ According to the National Institute of Standards and Technology (NIST), a greedy
 
 It turns out that this greedy approach (i.e., algorithm) is not only locally optimal but also globally so for America’s currency (and also the European Union’s). That is, so long as a cashier has enough of each coin, this largest-to-smallest approach will yield the fewest coins possible.
 
-### ***Specification***
+## **Specification**
 
 - Write, in a file called `cash.py` in `~/pset6/cash/`, a program that first asks the user how much change is owed and then spits out the minimum number of coins with which said change can be made, exactly as you did in Problem Set 1, except that your program this time should be written in Python.
 - Use `get_float` from the CS50 Library to get the user’s input and `print` to output your answer. Assume that the only coins available are quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).
@@ -95,7 +95,7 @@ Computes the approximate grade level needed to comprehend any inputed text, usin
 
 ![Formula](https://user-images.githubusercontent.com/69617120/135398061-00d78ce1-fc16-421f-80c4-3422837c1255.PNG)
 
-### ***Background***
+## **Background**
 
 Here, `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text. For example:
 
@@ -105,7 +105,7 @@ The text the user inputted has 65 letters, 4 sentences, and 14 words. 65 letters
 
 If we abstract away the details all that's happening is that as the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level.
 
-### ***Specification***
+## **Specification**
 
 - Write, in a file called `readability.py` in `~/pset6/readability/`, a program that first asks the user to type in some text, and then outputs the grade level for the text, according to the Coleman-Liau formula, exactly as you did in Problem Set 2, except that your program this time should be written in Python.
   - Recall that the Coleman-Liau index is computed as `0.0588 * L - 0.296 * S - 15.8`, where `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text.
@@ -120,7 +120,7 @@ Command line program that identifies to whom a sequence of DNA belongs, per the 
 
 ![Example](https://user-images.githubusercontent.com/69617120/135580170-3ce3fcea-25a9-4a35-8e57-c6c35ca2e5af.PNG)
 
-### ***Background***
+## **Background**
 
 DNA, the carrier of genetic information in living things, has been used in criminal justice for decades. But how, exactly, does DNA profiling work? Given a sequence of DNA, how can forensic investigators identify to whom it belongs?
 
@@ -142,7 +142,7 @@ So given a sequence of DNA, how might you identify to whom it belongs? Well, ima
 
 In practice, since analysts know on which chromosome and at which location in the DNA an STR will be found, they can localize their search to just a narrow section of DNA. But we’ll ignore that detail for this problem.
 
-### ***Specification***
+## **Specification**
 
 In a file called `dna.py` in `~/pset6/dna/`, implement a program that identifies to whom a sequence of DNA belongs.
 
