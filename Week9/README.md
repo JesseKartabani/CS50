@@ -55,3 +55,12 @@ Complete the implementation of `register` in such a way that it allows a user to
 - Once the user is registered, you may either automatically log in the user or bring the user to a page where they can log in themselves.
 
 Once you’ve implemented `register` correctly, you should be able to register for an account and log in. And you should be able to see your rows via sqlite3 or phpLiteAdmin.
+
+### `quote`
+
+Complete the implementation of `quote` in such a way that it allows a user to look up a stock’s current price.
+
+- Require that a user input a stock’s symbol, implemented as a text field whose `name` is `symbol`.
+- Submit the user’s input via `POST` to `/quote`.
+- Odds are you’ll want to create two new templates (e.g., `quote.html` and `quoted.html`). When a user visits `/quote` via GET, render one of those templates, inside of which should be an HTML form that submits to `/quote` via POST. In response to a POST, `quote` can render that second template, embedding within it one or more values from `lookup`.
+
