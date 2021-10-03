@@ -11,7 +11,7 @@ Topics include abstraction, algorithms, data structures, encapsulation, resource
 
 ## Disclaimer 
 
-If you are a currently taking CS50 you shouldn't be looking at this repository as it
+If you are currently taking CS50 you shouldn't be looking at this repository as it
 violates the course's policy on academic honesty!
 
 ## Table of Contents
