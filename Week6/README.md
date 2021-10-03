@@ -116,7 +116,7 @@ If we abstract away the details all that's happening is that as the average numb
 
 # DNA
 
-Command line program that identifies a person based on their DNA, per the below.
+Command line program that identifies to whom a sequence of DNA belongs, per the below.
 
 ![Example](https://user-images.githubusercontent.com/69617120/135580170-3ce3fcea-25a9-4a35-8e57-c6c35ca2e5af.PNG)
 
