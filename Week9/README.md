@@ -45,7 +45,7 @@ Users also can retain their data by registering an account, registered accounts 
 
 ## **Specification**
 
-### ***register***
+### `register`
 
 Complete the implementation of `register` in such a way that it allows a user to register for an account via a form.
 - Require that a user input a username, implemented as a text field whose `name` is `username`. Render an apology if the user’s input is blank or the username already exists.
