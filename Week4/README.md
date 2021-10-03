@@ -37,7 +37,7 @@ Command line program that applies filters (greyscale, sepia, reflection and blur
 
 One common filter is the “grayscale” filter, where we take an image and want to convert it to black-and-white. How does that work?
 
-If the red, green, and blue values are all set to 0x00 (hexadecimal for 0), then the pixel is black. And if all values are set to 0xff (hexadecimal for 255), then the pixel is white. So long as the red, green, and blue values are all equal, the result will be varying shades of gray along the black-white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to black).
+If the red, green, and blue values are all set to `0x00` (hexadecimal for `0`), then the pixel is black. And if all values are set to `0xff` (hexadecimal for `255`), then the pixel is white. So long as the red, green, and blue values are all equal, the result will be varying shades of gray along the black-white spectrum, with higher values meaning lighter shades (closer to white) and lower values meaning darker shades (closer to black).
 
 So to convert a pixel to grayscale, we just need to make sure the red, green, and blue values are all the same value. But how do we know what value to make them? Well, it’s probably reasonable to expect that if the original red, green, and blue values were all pretty high, then the new value should also be pretty high. And if the original values were all low, then the new value should also be low.
 
@@ -65,10 +65,10 @@ There are a number of ways to create the effect of blurring or softening an imag
 
 ### ***Specification***
 
-- The function grayscale should take an image and turn it into a black-and-white version of the same image.
-- The function sepia should take an image and turn it into a sepia version of the same image.
-- The reflect function should take an image and reflect it horizontally.
-- Finally, the blur function should take an image and turn it into a box-blurred version of the same image.
+- The function `grayscale` should take an image and turn it into a black-and-white version of the same image.
+- The function `sepia` should take an image and turn it into a sepia version of the same image.
+- The reflect `function` should take an image and reflect it horizontally.
+- Finally, the `blur` function should take an image and turn it into a box-blurred version of the same image.
 
 # Recover.c
 
@@ -84,9 +84,9 @@ Command line program that recovers deleted JPEGs from a forensic image, per the 
 
 Even though JPEGs are more complicated than BMPs, JPEGs have “signatures,” patterns of bytes that can distinguish them from other file formats. Specifically, the first three bytes of JPEGs are 
 
-![Ca32pture](https://user-images.githubusercontent.com/69617120/135557904-4c7caa9d-08bd-4439-92bd-78ec3c89ba56.PNG)
+![Example](https://user-images.githubusercontent.com/69617120/135557904-4c7caa9d-08bd-4439-92bd-78ec3c89ba56.PNG)
 
-from first byte to third byte, left to right. The fourth byte, meanwhile, is either 0xe0, 0xe1, 0xe2, 0xe3, 0xe4, 0xe5, 0xe6, 0xe7, 0xe8, 0xe9, 0xea, 0xeb, 0xec, 0xed, 0xee, or 0xef. Put another way, the fourth byte’s first four bits are 1110. 
+from first byte to third byte, left to right. The fourth byte, meanwhile, is either `0xe0`, `0xe1`, `0xe2`, `0xe3`, `0xe4`, `0xe5`, `0xe6`, `0xe7`, `0xe8`, `0xe9`, `0xea`, `0xeb`, `0xec`, `0xed`, `0xee`, or `0xef`. Put another way, the fourth byte’s first four bits are `1110`. 
 
 Odds are, if you find this pattern of four bytes on media known to store photos (e.g., my memory card), they demarcate the start of a JPEG. To be fair, you might encounter these patterns on some disk purely by chance, so data recovery isn’t an exact science. 
 
@@ -96,13 +96,15 @@ The implication of all these details is that you, the investigator, can probably
 
 Realize, of course, that JPEGs can span contiguous blocks. Otherwise, no JPEG could be larger than 512 B. But the last byte of a JPEG might not fall at the very end of a block. Recall the possibility of slack space. But not to worry. Because this memory card was brand-new when I started snapping photos, odds are it’d been “zeroed” (i.e., filled with 0s) by the manufacturer, in which case any slack space will be filled with 0s. It’s okay if those trailing 0s end up in the JPEGs you recover; they should still be viewable. 
 
-I’ve gone ahead and created a “forensic image” of the card, storing its contents, byte after byte, in a file called card.raw. So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs.
+I’ve gone ahead and created a “forensic image” of the card, storing its contents, byte after byte, in a file called `card.raw`. So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs.
 
 ### ***Specification***
 
-- Implement your program in a file called recover.c in a directory called recover.
+Implement a program called `recover` that recovers JPEGs from a forensic image.
+
+- Implement your program in a file called `recover.c` in a directory called `recover`.
 - Your program should accept exactly one command-line argument, the name of a forensic image from which to recover JPEGs.
-- If your program is not executed with exactly one command-line argument, it should remind the user of correct usage, and main should return 1.
+- If your program is not executed with exactly one command-line argument, it should remind the user of correct usage, and `main` should return `1`.
 - If the forensic image cannot be opened for reading, your program should inform the user as much, and main should return 1.
-- The files you generate should each be named ###.jpg, where ### is a three-digit decimal number, starting with 000 for the first image and counting up.
-- Your program, if it uses malloc, must not leak any memory.
+- The files you generate should each be named `###.jpg`, where `###` is a three-digit decimal number, starting with `000` for the first image and counting up.
+- Your program, if it uses `malloc`, must not leak any memory.
