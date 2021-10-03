@@ -26,7 +26,7 @@ Complete the implementation of a web application to let users store and keep tra
 
 Web application via which users can “buy” and “sell” stocks, a la the below.
 
-![Finance Website](https://user-images.githubusercontent.com/69617120/135742038-68206ceb-1ad4-4843-803f-a85c2e160d2d.PNG)
+![Website](https://user-images.githubusercontent.com/69617120/135743243-d6b533af-cff9-46dc-a9b5-2b2a32812fb8.PNG)
 
 This project included distribution code; features completed by me can be found below implementation details.
 
