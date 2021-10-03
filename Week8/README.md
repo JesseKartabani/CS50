@@ -10,7 +10,7 @@ Webpage that allows users answer trivia questions constructed with HTML, CSS, an
 
 This project included distribution code; features completed by me can be found below implementation details. 
 
-### ***Implementation Details***
+## **Implementation Details**
 
 Design a webpage using HTML, CSS, and JavaScript to let users answer trivia questions.
 
