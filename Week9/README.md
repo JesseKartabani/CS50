@@ -39,8 +39,8 @@ Users also can retain their data by registering an account, registered accounts 
 ## **Tech Stack / Tools**
 
 - HTML, CSS, Bootstrap
-- Python, Flask, Jinja,
-- SQL, SQLite,
+- Python, Flask, Jinja
+- SQL, SQLite, phpLiteAdmin
 - Public API key [IEX](https://iexcloud.io/console/tokens)
 
 ## **Specification**
@@ -59,8 +59,30 @@ Once you’ve implemented `register` correctly, you should be able to register f
 ### `quote`
 
 Complete the implementation of `quote` in such a way that it allows a user to look up a stock’s current price.
-
 - Require that a user input a stock’s symbol, implemented as a text field whose `name` is `symbol`.
 - Submit the user’s input via `POST` to `/quote`.
 - Odds are you’ll want to create two new templates (e.g., `quote.html` and `quoted.html`). When a user visits `/quote` via GET, render one of those templates, inside of which should be an HTML form that submits to `/quote` via POST. In response to a POST, `quote` can render that second template, embedding within it one or more values from `lookup`.
 
+### `buy`
+
+Complete the implementation of `buy` in such a way that it enables a user to buy stocks.
+- Require that a user input a stock’s symbol, implemented as a text field whose `name` is `symbol`. Render an apology if the input is blank or the symbol does not exist (as per the return value of `lookup`).
+- Require that a user input a number of shares, implemented as a text field whose `name` is `shares`. Render an apology if the input is not a positive integer.
+- Submit the user’s input via `POST` to `/buy`.
+- Odds are you’ll want to call `lookup` to look up a stock’s current price.
+- Odds are you’ll want to `SELECT` how much cash the user currently has in `users`.
+- Add one or more new tables to `finance.db` via which to keep track of the purchase. Store enough information so that you know who bought what at what price and when.
+  - Use appropriate SQLite types.
+  - Define `UNIQUE` indexes on any fields that should be unique.
+  - Define (non-`UNIQUE`) indexes on any fields via which you will search (as via `SELECT` with `WHERE`).
+- Render an apology, without completing a purchase, if the user cannot afford the number of shares at the current price.
+- When a purchase is complete, redirect the user back to the `index` page.
+- You don’t need to worry about race conditions (or use transactions).
+
+Once you’ve implemented `buy` correctly, you should be able to see users purchases in your new table(s) via `sqlite3` or phpLiteAdmin.
+
+### `index`
+
+Complete the implementation of `index` in such a way that it displays an HTML table summarizing, for the user currently logged in, which stocks the user owns, the numbers of shares owned, the current price of each stock, and the total value of each holding (i.e., shares times price). Also display the user’s current cash balance along with a grand total (i.e., stocks’ total value plus cash).
+- Odds are you’ll want to execute multiple `SELECT`s. Depending on how you implement your table(s), you might find `GROUP BY` `HAVING` `SUM` and/or `WHERE` of interest.
+- Odds are you’ll want to call `lookup` for each stock.
