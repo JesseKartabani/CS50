@@ -8,13 +8,13 @@ Modifies the volume of a WAV file by taking three command-line arguments. First 
 
 ![9Capture](https://user-images.githubusercontent.com/69617120/135434393-b8526a76-8cc9-4194-a957-bc7d457f02fa.PNG)
 
-### ***Background***
+## **Background**
 
 WAV files are a common file format for representing audio. WAV files store audio as a sequence of “samples”: numbers that represent the value of some audio signal at a particular point in time. WAV files begin with a 44-byte “header” that contains information about the file itself, including the size of the file, the number of samples per second, and the size of each sample. After the header, the WAV file contains a sequence of samples, each a single 2-byte (16-bit) integer representing the audio signal at a particular point in time.
 
 Scaling each sample value by a given factor has the effect of changing the volume of the audio. Multiplying each sample value by 2.0, for example, will have the effect of doubling the volume of the origin audio. Multiplying each sample by 0.5, meanwhile, will have the effect of cutting the volume in half.
 
-### ***Implementation Details***
+## **Implementation Details**
 
 Complete the implementation of `volume.c`, such that it changes the volume of a sound file by a given factor.
 
@@ -31,7 +31,7 @@ Command line program that applies filters (greyscale, sepia, reflection and blur
 
 ![Captu99re](https://user-images.githubusercontent.com/69617120/135555981-9a58e280-8c22-4ff5-8f40-adddf04fcc90.PNG)
 
-### ***Background***
+## **Background**
 
 ***Grayscale***
 
@@ -63,7 +63,7 @@ Note that all of the original pixels of the original image will still be present
 
 There are a number of ways to create the effect of blurring or softening an image. For this problem, we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a new value by averaging the color values of neighboring pixels.
 
-### ***Specification***
+## **Specification**
 
 - The function `grayscale` should take an image and turn it into a black-and-white version of the same image.
 - The function `sepia` should take an image and turn it into a sepia version of the same image.
@@ -76,11 +76,11 @@ Command line program that recovers deleted JPEGs from a forensic image, per the 
 
 ![C11a1pture](https://user-images.githubusercontent.com/69617120/135557589-39f00a5a-79d8-4f39-adb0-ea8b1d86ec47.PNG)
 
-### ***Usage***
+## **Usage**
 
 ![Cap32ture](https://user-images.githubusercontent.com/69617120/135558445-abee1a1d-663a-4321-bd9b-eabda691013d.PNG)
 
-### ***Background*** 
+## **Background** 
 
 Even though JPEGs are more complicated than BMPs, JPEGs have “signatures,” patterns of bytes that can distinguish them from other file formats. Specifically, the first three bytes of JPEGs are 
 
@@ -98,7 +98,7 @@ Realize, of course, that JPEGs can span contiguous blocks. Otherwise, no JPEG co
 
 I’ve gone ahead and created a “forensic image” of the card, storing its contents, byte after byte, in a file called `card.raw`. So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs.
 
-### ***Specification***
+## **Specification**
 
 Implement a program called `recover` that recovers JPEGs from a forensic image.
 
