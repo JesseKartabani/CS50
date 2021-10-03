@@ -27,3 +27,9 @@ Design a webpage using HTML, CSS, and JavaScript to let users answer trivia ques
 - Using JavaScript, add logic so that the text field changes color when a user confirms their answer.
   - If the user types an incorrect answer and presses the confirmation button, the text field should turn red and text should appear beneath the question that says “Incorrect”.
   - If the user types the correct answer and presses the confirmation button, the input field should turn green and text should appear beneath the question that says “Correct!”.
+
+# PSET 8 Homepage
+
+Simple mock homepage using HTML, CSS, JavaScript and Bootstrap
+
+![Ca12pture](https://user-images.githubusercontent.com/69617120/135736503-3ba21da6-4d1e-4911-a84f-1dd69402c089.PNG)
