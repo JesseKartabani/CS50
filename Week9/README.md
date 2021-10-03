@@ -21,3 +21,24 @@ Complete the implementation of a web application to let users store and keep tra
 - When the `/` route is requested via `POST`, your web application should add a new birthday to your database and then re-render the index page. 
   - First, in `index.html`, add an HTML form. The form should let users type in a name, a birthday month, and a birthday day. Be sure the form submits to `/` (its “action”) with a method of `post`. 
   - Then, in `application.py`, add logic in your `POST` request handling to `INSERT` a new row into the `birthdays` table based on the data supplied by the user. 
+
+# PSET 9 C$50 Finance
+
+Web application via which users can “buy” and “sell” stocks, a la the below.
+
+![Finance Website](https://user-images.githubusercontent.com/69617120/135742038-68206ceb-1ad4-4843-803f-a85c2e160d2d.PNG)
+
+This project included distribution code; features completed by me can be found below implementation details.
+
+## **Background**
+
+Full stack web application designed for buying and selling stocks. Giving users the ability to execute live quotes on stocks by utilizing an IEX API key, buy any stock of their choosing as well as sell stocks they are holding. 
+
+Users also can retain their data by registering an account, registered accounts are stored inside an SQLite database (passwords are hashed for security) along with a transaction history which is visible for users on the front end. 
+
+## **Tech Stack / Tools**
+
+- HTML, CSS, Bootstrap
+- Python, Flask, Jinja,
+- SQL, SQLite
+- API key [IEX](https://iexcloud.io/cloud-login#/register/)"Register for IEX API key"
