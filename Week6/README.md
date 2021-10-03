@@ -6,7 +6,7 @@ https://cs50.harvard.edu/x/2021/weeks/6/
 
 Program that predicts the percentage chance of winning the FIFA World Cup for each team.
 
-![Captu423re](https://user-images.githubusercontent.com/69617120/135570976-7763a233-fa20-48b2-a51b-975541cbecd6.PNG)
+![Example](https://user-images.githubusercontent.com/69617120/135570976-7763a233-fa20-48b2-a51b-975541cbecd6.PNG)
 
 Distribution code was included for this project, work I completed encompasses everything listed below implementation details. 
 
@@ -134,7 +134,7 @@ Using multiple STRs, rather than just one, can improve the accuracy of DNA profi
 
 What might such a DNA database look like? Well, in its simplest form, you could imagine formatting a DNA database as a CSV file, wherein each row corresponds to an individual, and each column corresponds to a particular STR.
 
-![Capasture](https://user-images.githubusercontent.com/69617120/135580828-d7e6629e-26ee-4210-90e0-8aa10e9b93b6.PNG)
+![DNA Data](https://user-images.githubusercontent.com/69617120/135580828-d7e6629e-26ee-4210-90e0-8aa10e9b93b6.PNG)
 
 The data in the above file would suggest that Alice has the sequence `AGAT` repeated 28 times consecutively somewhere in her DNA, the sequence `AATG` repeated 42 times, and `TATC` repeated 14 times. Bob, meanwhile, has those same three STRs repeated 17 times, 22 times, and 19 times, respectively. And Charlie has those same three STRs repeated 36, 18, and 25 times, respectively.
 
