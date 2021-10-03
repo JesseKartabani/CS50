@@ -8,3 +8,5 @@ Web application to keep track of birthdays; Built using HTML, CSS, Python, Flask
 
 ![Website](https://user-images.githubusercontent.com/69617120/135736846-b7b6067d-50be-40d4-928e-d5ea58046055.PNG)
 
+This project included distribution code; features completed by me can be found below implementation details. 
+
